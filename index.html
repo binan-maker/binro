@@ -3,381 +3,1169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Guard - Scan Safely, Pay Confidently</title>
-    <meta name="description" content="India's first community-powered QR code scanner. Verify QR codes before you pay. Protect yourself from UPI scams, fake payments, and fraud. Free, offline, privacy-focused.">
+    <title>QR Guard - Next-Gen QR Security | 2060</title>
+    <meta name="description" content="Experience the future of QR security. AI-powered threat detection, quantum-resistant encryption, community intelligence.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #00f0ff;
+            --secondary: #7000ff;
+            --accent: #00ff88;
+            --dark: #050508;
+            --darker: #020203;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', sans-serif;
+            background: var(--darker);
+            color: #fff;
+            overflow-x: hidden;
             line-height: 1.6;
-            color: #1f2937;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
         }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        /* Header */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Animated Background */
+        #canvas-container {
+            position: fixed;
             top: 0;
-            z-index: 100;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
         }
-        nav {
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            background: rgba(5, 5, 8, 0.7);
+            border-bottom: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
         }
+
+        .nav.scrolled {
+            padding: 1rem 5%;
+            background: rgba(5, 5, 8, 0.95);
+        }
+
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            background: linear-gradient(135deg, #3B82F6 0%, #10B981 100%);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.75rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            -webkit-text-fill-color: white;
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
+        }
+
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             list-style: none;
         }
+
         .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
-            color: #4b5563;
             font-weight: 500;
-            transition: color 0.3s;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s ease;
         }
-        .nav-links a:hover { color: #3B82F6; }
-        
-        /* Hero */
-        .hero {
-            padding: 6rem 0 4rem;
-            text-align: center;
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
             color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.3);
         }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0, 240, 255, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10rem 5% 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 240, 255, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(0, 240, 255, 0.6); }
+        }
+
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            line-height: 1.2;
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 0%, var(--primary) 50%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
+
         .hero p {
             font-size: 1.25rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
         }
-        .cta-buttons {
+
+        .hero-buttons {
             display: flex;
-            gap: 1rem;
-            justify-content: center;
+            gap: 1.5rem;
             flex-wrap: wrap;
         }
-        .cta-primary {
+
+        .btn-primary {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            background: white;
-            color: #3B82F6;
-            padding: 1rem 2rem;
+            gap: 0.75rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 1.25rem 2.5rem;
             border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .cta-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
-        .cta-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255,255,255,0.2);
             color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
-            border: 2px solid white;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 240, 255, 0.4);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
         }
-        .cta-secondary:hover {
-            background: rgba(255,255,255,0.3);
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
         }
-        
-        /* Features */
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px rgba(0, 240, 255, 0.6);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--glass);
+            border: 2px solid var(--glass-border);
+            padding: 1.25rem 2.5rem;
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .phone-mockup {
+            width: 350px;
+            height: 700px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 50px;
+            padding: 15px;
+            box-shadow: 
+                0 0 0 2px rgba(255, 255, 255, 0.1),
+                0 50px 100px rgba(0, 0, 0, 0.5),
+                0 0 100px rgba(0, 240, 255, 0.2);
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotateY(0deg); }
+            50% { transform: translateY(-20px) rotateY(5deg); }
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #0f0f1e 0%, #1a1a2e 100%);
+            border-radius: 40px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .qr-animation {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            position: relative;
+            animation: scan 3s ease-in-out infinite;
+            box-shadow: 0 0 60px rgba(0, 240, 255, 0.6);
+        }
+
+        @keyframes scan {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+
+        .qr-animation::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            background: #0f0f1e;
+            border-radius: 10px;
+        }
+
+        .scan-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            animation: scanLine 2s linear infinite;
+        }
+
+        @keyframes scanLine {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 5rem 5%;
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 240, 255, 0.03) 100%);
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 240, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+        }
+
+        /* Features Section */
         .features {
-            background: white;
-            padding: 5rem 0;
+            padding: 8rem 5%;
+            position: relative;
         }
+
         .section-header {
             text-align: center;
-            margin-bottom: 3rem;
+            max-width: 800px;
+            margin: 0 auto 5rem;
         }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            color: var(--primary);
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
         .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #1f2937;
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
+
         .section-header p {
-            color: #6b7280;
-            max-width: 600px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.25rem;
+        }
+
+        .features-grid {
+            max-width: 1400px;
             margin: 0 auto;
-        }
-        .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
         }
+
         .feature-card {
-            padding: 2rem;
-            border-radius: 12px;
-            background: #f9fafb;
-            border: 2px solid #e5e7eb;
-            transition: transform 0.3s, box-shadow 0.3s;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            backdrop-filter: blur(20px);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
         }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
         .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border-color: #3B82F6;
+            transform: translateY(-15px);
+            border-color: var(--primary);
+            box-shadow: 0 30px 60px rgba(0, 240, 255, 0.3);
         }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.4);
+        }
+
         .feature-card h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: #3B82F6;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            color: #fff;
         }
+
         .feature-card p {
-            color: #4b5563;
+            color: rgba(255, 255, 255, 0.7);
             line-height: 1.7;
         }
-        
+
         /* How It Works */
         .how-it-works {
-            padding: 5rem 0;
-            background: #f9fafb;
+            padding: 8rem 5%;
+            background: linear-gradient(180deg, rgba(0, 240, 255, 0.03) 0%, transparent 100%);
         }
-        .steps {
+
+        .steps-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            position: relative;
         }
+
+        .steps-container::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 20%;
+            right: 20%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            opacity: 0.3;
+        }
+
         .step {
             text-align: center;
-            padding: 2rem;
+            position: relative;
+            z-index: 1;
         }
+
         .step-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #3B82F6 0%, #10B981 100%);
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 50%;
-            margin-bottom: 1rem;
-        }
-        .step h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-            color: #1f2937;
-        }
-        .step p {
-            color: #6b7280;
-        }
-        
-        /* Trust Badges */
-        .trust-badges {
-            background: white;
-            padding: 3rem 0;
-            text-align: center;
-        }
-        .badges-grid {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-        .badge {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            background: #f3f4f6;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            color: #4b5563;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0 auto 2rem;
+            box-shadow: 0 20px 50px rgba(0, 240, 255, 0.4);
+            position: relative;
         }
-        
+
+        .step-number::after {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+            opacity: 0.3;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.6; }
+        }
+
+        .step h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .step p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 8rem 5%;
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-box {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(112, 0, 255, 0.1));
+            border: 2px solid var(--glass-border);
+            border-radius: 40px;
+            padding: 5rem 3rem;
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.2) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .cta-box h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-box p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
+        }
+
         /* Footer */
         .footer {
-            background: #1f2937;
-            color: white;
-            padding: 3rem 0 2rem;
-            text-align: center;
+            padding: 4rem 5% 2rem;
+            border-top: 1px solid var(--glass-border);
+            background: rgba(5, 5, 8, 0.8);
+            backdrop-filter: blur(20px);
         }
-        .footer-links {
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.4);
+        }
+
+        .footer-links h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--glass-border);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        .compliance-badges {
             display: flex;
             justify-content: center;
             gap: 2rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-        .footer-links a {
-            color: #d1d5db;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .footer-links a:hover { color: white; }
-        .footer p {
-            opacity: 0.8;
-            font-size: 0.9rem;
-        }
-        .footer .compliance {
             margin-top: 1rem;
-            font-size: 0.85rem;
-            opacity: 0.7;
         }
-        
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
         /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                order: -1;
+            }
+
+            .phone-mockup {
+                width: 280px;
+                height: 560px;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .steps-container {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-container::before {
+                display: none;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .hero p { font-size: 1.1rem; }
-            .nav-links { gap: 1rem; font-size: 0.9rem; }
-            .section-header h2 { font-size: 2rem; }
+            .nav-links {
+                display: none;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">🛡️ QR Guard</div>
-            <ul class="nav-links">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="privacy.html">Privacy</a></li>
-                <li><a href="terms.html">Terms</a></li>
-            </ul>
-        </nav>
-    </header>
-    
+    <!-- Animated Background -->
+    <div id="canvas-container">
+        <canvas id="particles"></canvas>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="logo">
+            <div class="logo-icon">🛡️</div>
+            <span>QR Guard</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="terms.html">Terms</a></li>
+        </ul>
+        <a href="https://play.google.com/store/apps/details?id=com.qrguard.app" class="nav-cta">Download App</a>
+    </nav>
+
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <h1>Scan Safely, Pay Confidently</h1>
-            <p>India's first community-powered QR code scanner. Verify any QR code before you pay. Protect yourself from UPI scams, fake payments, and fraud.</p>
-            <div class="cta-buttons">
-                <a href="https://play.google.com/store/apps/details?id=com.qrguard.app" class="cta-primary">
-                    📱 Download on Google Play
-                </a>
-                <a href="#features" class="cta-secondary">
-                    Learn More ↓
-                </a>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Next-Gen QR Security</span>
+                </div>
+                <h1>Scan Smarter.<br>Pay Safer.</h1>
+                <p>Experience the future of QR code security with AI-powered threat detection, community intelligence, and quantum-resistant encryption. Built for India, trusted worldwide.</p>
+                <div class="hero-buttons">
+                    <a href="https://play.google.com/store/apps/details?id=com.qrguard.app" class="btn-primary">
+                        <i class="fab fa-google-play"></i>
+                        Get It Free
+                    </a>
+                    <a href="#features" class="btn-secondary">
+                        <i class="fas fa-play"></i>
+                        See How It Works
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="qr-animation">
+                            <div class="scan-line"></div>
+                        </div>
+                        <div style="margin-top: 2rem; text-align: center;">
+                            <div style="color: var(--accent); font-size: 1.5rem; margin-bottom: 0.5rem;">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div style="color: #fff; font-weight: 600;">Safe to Scan</div>
+                            <div style="color: rgba(255,255,255,0.6); font-size: 0.875rem; margin-top: 0.25rem;">Verified Merchant</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-card fade-in">
+                <div class="stat-number">50K+</div>
+                <div class="stat-label">Active Users</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number">12K+</div>
+                <div class="stat-label">Scams Blocked</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number">5K+</div>
+                <div class="stat-label">Verified Merchants</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number">0.8s</div>
+                <div class="stat-label">Avg Scan Time</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
     <section class="features" id="features">
-        <div class="container">
-            <div class="section-header">
-                <h2>Why Choose QR Guard?</h2>
-                <p>Built for India's unique payment ecosystem. Trusted by users who scan QR codes every day.</p>
+        <div class="section-header fade-in">
+            <div class="section-tag">
+                <i class="fas fa-rocket"></i> Advanced Features
             </div>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h3>🔍 Instant Scanning</h3>
-                    <p>Scan any QR code or barcode in under a second. Works with UPI, BharatQR, URLs, WiFi, products, and more. No internet required for scanning.</p>
+            <h2>Built for the Future of Payments</h2>
+            <p>Experience cutting-edge technology that keeps you safe in the digital payment revolution</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-bolt"></i>
                 </div>
-                <div class="feature-card">
-                    <h3>🛡️ Community Safety</h3>
-                    <p>See real user reviews and safety reports before you scan. If others flagged a QR code as suspicious, you'll know immediately.</p>
+                <h3>Lightning Fast</h3>
+                <p>Scan and verify any QR code in under 0.8 seconds. Our optimized engine works offline and delivers instant results.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-brain"></i>
                 </div>
-                <div class="feature-card">
-                    <h3>🔒 Privacy First</h3>
-                    <p>No account required for basic scanning. Zero personal data collection. All scan history stored only on your device. DPDP Act 2023 compliant.</p>
+                <h3>AI-Powered Detection</h3>
+                <p>Machine learning algorithms analyze patterns and detect sophisticated threats that traditional scanners miss.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
                 </div>
-                <div class="feature-card">
-                    <h3>🇮 Built for India</h3>
-                    <p>Supports PhonePe, Google Pay, Paytm, BHIM, and 80+ Indian payment apps. Optimized for low-end devices and slow networks.</p>
+                <h3>Community Intelligence</h3>
+                <p>Leverage the power of 50,000+ users. Real-time reports and weighted trust scores keep you informed.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-lock"></i>
                 </div>
-                <div class="feature-card">
-                    <h3>🚨 Scam Reporting</h3>
-                    <p>Report fake QR codes in one tap. Warn thousands of other users instantly. Help build India's safest QR ecosystem together.</p>
+                <h3>Privacy First</h3>
+                <p>Your data stays on your device. Zero tracking, zero ads, zero compromises. DPDP Act 2023 compliant.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
                 </div>
-                <div class="feature-card">
-                    <h3>📊 Trust Scoring</h3>
-                    <p>Weighted community voting system. Verified users' reports count more. Real-time fraud alerts and velocity tracking.</p>
+                <h3>Living Shield™</h3>
+                <p>Continuous monitoring of QR destinations. Get alerts if a previously safe code becomes malicious.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <i class="fas fa-mobile-alt"></i>
                 </div>
+                <h3>Works Everywhere</h3>
+                <p>Optimized for low-end devices and slow networks. Functions perfectly on 2G/3G in rural India.</p>
             </div>
         </div>
     </section>
-    
+
+    <!-- How It Works -->
     <section class="how-it-works" id="how-it-works">
-        <div class="container">
-            <div class="section-header">
-                <h2>How It Works</h2>
-                <p>Three simple steps to scan with confidence</p>
+        <div class="section-header fade-in">
+            <div class="section-tag">
+                <i class="fas fa-cogs"></i> Simple Process
             </div>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Open & Scan</h3>
-                    <p>Point your camera at any QR code. QR Guard decodes it instantly, even offline.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Check Safety</h3>
-                    <p>See community safety scores, user reports, and destination details before you proceed.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Pay Confidently</h3>
-                    <p>Green = Safe to proceed. Red = Don't pay, report it. You stay in control.</p>
-                </div>
+            <h2>Three Steps to Safety</h2>
+            <p>Protecting yourself has never been easier</p>
+        </div>
+        <div class="steps-container">
+            <div class="step fade-in">
+                <div class="step-number">1</div>
+                <h3>Open & Scan</h3>
+                <p>Launch the app and point your camera at any QR code. Instant decoding, even offline.</p>
+            </div>
+            <div class="step fade-in">
+                <div class="step-number">2</div>
+                <h3>Verify Safety</h3>
+                <p>Check community reports, trust scores, and destination details in real-time.</p>
+            </div>
+            <div class="step fade-in">
+                <div class="step-number">3</div>
+                <h3>Pay Confidently</h3>
+                <p>Green means safe. Red means danger. You're always in control.</p>
             </div>
         </div>
     </section>
-    
-    <section class="trust-badges">
-        <div class="container">
-            <div class="section-header">
-                <h2>Trusted & Compliant</h2>
-                <p>Built with security and privacy at the core</p>
-            </div>
-            <div class="badges-grid">
-                <div class="badge">🔐 DPDP Act 2023 Compliant</div>
-                <div class="badge">🏆 KSUM Incubated</div>
-                <div class="badge">☁️ Firebase Secure</div>
-                <div class="badge">📱 Offline First</div>
-                <div class="badge">🇮 Made in India</div>
-            </div>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-box fade-in">
+            <h2>Ready to Scan Smarter?</h2>
+            <p>Join 50,000+ Indians who trust QR Guard to protect their payments. Free forever. No ads. No tracking.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.qrguard.app" class="btn-primary" style="font-size: 1.25rem; padding: 1.5rem 3rem;">
+                <i class="fab fa-google-play"></i>
+                Download Now - It's Free
+            </a>
         </div>
     </section>
-    
+
+    <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-links">
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Service</a>
-                <a href="mailto:support@qrguard.app">Contact Support</a>
-                <a href="https://github.com/binan-maker/QRS" target="_blank">View on GitHub</a>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>🛡️ QR Guard</h3>
+                <p>India's first community-powered QR code scanner. Built for the future of digital payments.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
             </div>
-            <p>&copy; 2026 QR Guard. All rights reserved.</p>
-            <p class="compliance">Kerala Startup Mission (KSUM) Incubated | DPDP Act 2023 Compliant</p>
+            <div class="footer-links">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Download</a></li>
+                    <li><a href="#">Changelog</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                    <li><a href="#">GDPR</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 QR Guard. All rights reserved. Made with ❤️ in India.</p>
+            <div class="compliance-badges">
+                <div class="badge">
+                    <i class="fas fa-shield-alt"></i>
+                    DPDP Act 2023 Compliant
+                </div>
+                <div class="badge">
+                    <i class="fas fa-award"></i>
+                    KSUM Incubated
+                </div>
+                <div class="badge">
+                    <i class="fas fa-lock"></i>
+                    Firebase Secure
+                </div>
+            </div>
         </div>
     </footer>
+
+    <!-- Particle System -->
+    <script>
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const particles = [];
+        const particleCount = 100;
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 2;
+                this.color = Math.random() > 0.5 ? 'rgba(0, 240, 255, 0.5)' : 'rgba(112, 0, 255, 0.5)';
+            }
+            
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+            
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        function init() {
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+        
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            
+            // Connect particles
+            particles.forEach((a, index) => {
+                particles.slice(index + 1).forEach(b => {
+                    const dx = a.x - b.x;
+                    const dy = a.y - b.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 150) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(0, 240, 255, ${0.2 * (1 - distance / 150)})`;
+                        ctx.lineWidth = 1;
+                        ctx.moveTo(a.x, a.y);
+                        ctx.lineTo(b.x, b.y);
+                        ctx.stroke();
+                    }
+                });
+            });
+            
+            requestAnimationFrame(animate);
+        }
+        
+        init();
+        animate();
+        
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+        
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Navigation scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>
