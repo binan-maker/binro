@@ -4,27 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Guard - Scan Safely, Pay Confidently</title>
+    <meta name="description" content="India's first community-powered QR code scanner. Verify QR codes before you pay. Protect yourself from UPI scams, fake payments, and fraud. Free, offline, privacy-focused.">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #1f2937;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
         }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
+        /* Header */
         header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -33,63 +25,65 @@
             top: 0;
             z-index: 100;
         }
-        
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 0;
         }
-        
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
             background: linear-gradient(135deg, #3B82F6 0%, #10B981 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
-        
         .nav-links {
             display: flex;
             gap: 2rem;
             list-style: none;
         }
-        
         .nav-links a {
             text-decoration: none;
             color: #4b5563;
             font-weight: 500;
             transition: color 0.3s;
         }
+        .nav-links a:hover { color: #3B82F6; }
         
-        .nav-links a:hover {
-            color: #3B82F6;
-        }
-        
+        /* Hero */
         .hero {
             padding: 6rem 0 4rem;
             text-align: center;
             color: white;
         }
-        
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
             font-weight: 700;
+            line-height: 1.2;
         }
-        
         .hero p {
             font-size: 1.25rem;
             margin-bottom: 2rem;
             opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        
-        .cta-button {
-            display: inline-block;
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .cta-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             background: white;
             color: #3B82F6;
-            padding: 1rem 2.5rem;
+            padding: 1rem 2rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
@@ -97,30 +91,52 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             transition: transform 0.3s, box-shadow 0.3s;
         }
-        
-        .cta-button:hover {
+        .cta-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 40px rgba(0,0,0,0.3);
         }
+        .cta-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 2px solid white;
+            transition: background 0.3s;
+        }
+        .cta-secondary:hover {
+            background: rgba(255,255,255,0.3);
+        }
         
+        /* Features */
         .features {
             background: white;
             padding: 5rem 0;
         }
-        
-        .features h2 {
+        .section-header {
             text-align: center;
-            font-size: 2.5rem;
             margin-bottom: 3rem;
+        }
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
             color: #1f2937;
         }
-        
+        .section-header p {
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
-        
         .feature-card {
             padding: 2rem;
             border-radius: 12px;
@@ -128,25 +144,92 @@
             border: 2px solid #e5e7eb;
             transition: transform 0.3s, box-shadow 0.3s;
         }
-        
         .feature-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: #3B82F6;
         }
-        
         .feature-card h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
             color: #3B82F6;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .feature-card p {
+            color: #4b5563;
+            line-height: 1.7;
         }
         
+        /* How It Works */
+        .how-it-works {
+            padding: 5rem 0;
+            background: #f9fafb;
+        }
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .step {
+            text-align: center;
+            padding: 2rem;
+        }
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3B82F6 0%, #10B981 100%);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+        .step h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: #1f2937;
+        }
+        .step p {
+            color: #6b7280;
+        }
+        
+        /* Trust Badges */
+        .trust-badges {
+            background: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        .badges-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: #f3f4f6;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: #4b5563;
+        }
+        
+        /* Footer */
         .footer {
             background: #1f2937;
             color: white;
             padding: 3rem 0 2rem;
             text-align: center;
         }
-        
         .footer-links {
             display: flex;
             justify-content: center;
@@ -154,29 +237,28 @@
             margin-bottom: 2rem;
             flex-wrap: wrap;
         }
-        
         .footer-links a {
             color: #d1d5db;
             text-decoration: none;
             transition: color 0.3s;
         }
-        
-        .footer-links a:hover {
-            color: white;
-        }
-        
+        .footer-links a:hover { color: white; }
         .footer p {
             opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        .footer .compliance {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            opacity: 0.7;
         }
         
+        /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .nav-links {
-                gap: 1rem;
-            }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1.1rem; }
+            .nav-links { gap: 1rem; font-size: 0.9rem; }
+            .section-header h2 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -186,6 +268,7 @@
             <div class="logo">🛡️ QR Guard</div>
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="privacy.html">Privacy</a></li>
                 <li><a href="terms.html">Terms</a></li>
             </ul>
@@ -195,41 +278,91 @@
     <section class="hero">
         <div class="container">
             <h1>Scan Safely, Pay Confidently</h1>
-            <p>India's first community-powered QR code scanner.<br>Verify before you pay. Protect yourself from scams.</p>
-            <a href="https://play.google.com/store/apps/details?id=com.qrguard.app" class="cta-button">
-                Download on Google Play
-            </a>
+            <p>India's first community-powered QR code scanner. Verify any QR code before you pay. Protect yourself from UPI scams, fake payments, and fraud.</p>
+            <div class="cta-buttons">
+                <a href="https://play.google.com/store/apps/details?id=com.qrguard.app" class="cta-primary">
+                    📱 Download on Google Play
+                </a>
+                <a href="#features" class="cta-secondary">
+                    Learn More ↓
+                </a>
+            </div>
         </div>
     </section>
     
     <section class="features" id="features">
         <div class="container">
-            <h2>Why Choose QR Guard?</h2>
+            <div class="section-header">
+                <h2>Why Choose QR Guard?</h2>
+                <p>Built for India's unique payment ecosystem. Trusted by users who scan QR codes every day.</p>
+            </div>
             <div class="feature-grid">
                 <div class="feature-card">
                     <h3>🔍 Instant Scanning</h3>
-                    <p>Scan any QR code or barcode in under a second. Works offline - no internet required for scanning.</p>
+                    <p>Scan any QR code or barcode in under a second. Works with UPI, BharatQR, URLs, WiFi, products, and more. No internet required for scanning.</p>
                 </div>
                 <div class="feature-card">
                     <h3>🛡️ Community Safety</h3>
-                    <p>See real user reviews before you scan. Check if others reported it as a scam before you pay.</p>
+                    <p>See real user reviews and safety reports before you scan. If others flagged a QR code as suspicious, you'll know immediately.</p>
                 </div>
                 <div class="feature-card">
                     <h3>🔒 Privacy First</h3>
-                    <p>No account required. Zero personal data collection. All scan history stored only on your device.</p>
+                    <p>No account required for basic scanning. Zero personal data collection. All scan history stored only on your device. DPDP Act 2023 compliant.</p>
                 </div>
                 <div class="feature-card">
                     <h3>🇮 Built for India</h3>
-                    <p>Supports all Indian payment apps: PhonePe, Google Pay, Paytm, BHIM, and 80+ UPI apps.</p>
+                    <p>Supports PhonePe, Google Pay, Paytm, BHIM, and 80+ Indian payment apps. Optimized for low-end devices and slow networks.</p>
                 </div>
                 <div class="feature-card">
                     <h3>🚨 Scam Reporting</h3>
-                    <p>Report fake QR codes in 1 tap. Warn thousands of other users instantly and help build India's safest QR ecosystem.</p>
+                    <p>Report fake QR codes in one tap. Warn thousands of other users instantly. Help build India's safest QR ecosystem together.</p>
                 </div>
                 <div class="feature-card">
-                    <h3>📊 Detailed Analysis</h3>
-                    <p>View destination URL before opening. Check merchant name & verification status. Identify suspicious patterns.</p>
+                    <h3>📊 Trust Scoring</h3>
+                    <p>Weighted community voting system. Verified users' reports count more. Real-time fraud alerts and velocity tracking.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Three simple steps to scan with confidence</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Open & Scan</h3>
+                    <p>Point your camera at any QR code. QR Guard decodes it instantly, even offline.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Check Safety</h3>
+                    <p>See community safety scores, user reports, and destination details before you proceed.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Pay Confidently</h3>
+                    <p>Green = Safe to proceed. Red = Don't pay, report it. You stay in control.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="trust-badges">
+        <div class="container">
+            <div class="section-header">
+                <h2>Trusted & Compliant</h2>
+                <p>Built with security and privacy at the core</p>
+            </div>
+            <div class="badges-grid">
+                <div class="badge">🔐 DPDP Act 2023 Compliant</div>
+                <div class="badge">🏆 KSUM Incubated</div>
+                <div class="badge">☁️ Firebase Secure</div>
+                <div class="badge">📱 Offline First</div>
+                <div class="badge">🇮 Made in India</div>
             </div>
         </div>
     </section>
@@ -239,10 +372,11 @@
             <div class="footer-links">
                 <a href="privacy.html">Privacy Policy</a>
                 <a href="terms.html">Terms of Service</a>
-                <a href="mailto:support@qrguard.app">Contact</a>
+                <a href="mailto:support@qrguard.app">Contact Support</a>
+                <a href="https://github.com/binan-maker/QRS" target="_blank">View on GitHub</a>
             </div>
-            <p>&copy; 2024 QR Guard. Made with ❤️ in India. Kerala Startup Mission (KSUM) Incubated.</p>
-            <p style="margin-top: 0.5rem; font-size: 0.9rem;">DPDP Act 2023 Compliant</p>
+            <p>&copy; 2026 QR Guard. All rights reserved.</p>
+            <p class="compliance">Kerala Startup Mission (KSUM) Incubated | DPDP Act 2023 Compliant</p>
         </div>
     </footer>
 </body>
