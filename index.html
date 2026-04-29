@@ -1,30 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="QR Guard - Advanced QR Code Security for India">
-    <title>QR Guard | Secure QR Scanning</title>
+    <meta name="description" content="QR Guard - Premium QR Security for India's Digital Economy">
+    <meta name="theme-color" content="#0a0a12">
+    <title>QR Guard | Next-Gen QR Security</title>
     
     <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+        /* ========================================
+           DESIGN SYSTEM - $90K TIER
+           ======================================== */
         :root {
-            --primary: #00f0ff;
-            --secondary: #7000ff;
-            --accent: #00ff88;
-            --dark: #0a0a12;
-            --darker: #050508;
-            --glass: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --text: #ffffff;
-            --text-muted: rgba(255, 255, 255, 0.7);
+            /* Palette */
+            --bg-deep: #050508;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-glass: rgba(255, 255, 255, 0.05);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(0, 240, 255, 0.4);
+            
+            /* Accents */
+            --accent-cyan: #00f0ff;
+            --accent-purple: #7000ff;
+            --accent-green: #00ff88;
+            --accent-gradient: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            
+            /* Typography Scale (Fluid) */
+            --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+            --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+            --text-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+            --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.25rem);
+            --text-xl: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+            --text-2xl: clamp(2rem, 1.8rem + 1.2vw, 3rem);
+            --text-3xl: clamp(2.5rem, 2rem + 2vw, 4.5rem);
+            --text-4xl: clamp(3rem, 2.5rem + 2.5vw, 6rem);
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2.5rem;
+            --space-xl: 4rem;
+            --space-2xl: 6rem;
+            --space-3xl: 10rem;
+            
+            /* Easing */
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+            --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
         }
 
         * {
@@ -35,33 +66,72 @@
 
         html {
             scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--darker);
-            color: var(--text);
+            background: var(--bg-deep);
+            color: #fff;
             line-height: 1.6;
             overflow-x: hidden;
+            position: relative;
         }
 
-        h1, h2, h3, h4 {
+        /* Premium Noise Texture Overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.4;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-deep);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--accent-cyan), var(--accent-purple));
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-cyan);
+        }
+
+        /* Selection Color */
+        ::selection {
+            background: rgba(0, 240, 255, 0.3);
+            color: #fff;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
         }
 
-        /* GUARANTEED LOADER - Will always hide */
+        /* ========================================
+           GUARANTEED LOADER - PREMIUM ANIMATION
+           ======================================== */
         .loader {
             position: fixed;
             inset: 0;
-            background: var(--darker);
+            background: var(--bg-deep);
             z-index: 999999;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             gap: 2rem;
-            transition: opacity 0.8s ease;
+            transition: opacity 1s var(--ease-out-expo), visibility 1s;
         }
 
         .loader.hidden {
@@ -70,124 +140,122 @@
             pointer-events: none;
         }
 
-        .loader-ring {
-            width: 80px;
-            height: 80px;
-            border: 4px solid transparent;
-            border-top-color: var(--primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            box-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
+        .loader-logo {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-gradient);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            animation: logoBreath 2s ease-in-out infinite;
+            box-shadow: 0 0 40px rgba(0, 240, 255, 0.5);
         }
 
-        .loader-ring::after {
+        @keyframes logoBreath {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+
+        .loader-bar {
+            width: 200px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .loader-bar::after {
             content: '';
             position: absolute;
-            inset: 8px;
-            border: 4px solid transparent;
-            border-bottom-color: var(--accent);
-            border-radius: 50%;
-            animation: spin 1.5s linear infinite reverse;
-        }
-
-        @keyframes spin {
-            100% { transform: rotate(360deg); }
-        }
-
-        .loader-text {
-            font-family: 'Space Grotesk', sans-serif;
-            color: var(--primary);
-            font-size: 1rem;
-            letter-spacing: 0.2em;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        .loader-progress {
-            width: 200px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 2px;
-            overflow: hidden;
-        }
-
-        .loader-progress-bar {
+            left: 0;
+            top: 0;
             height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
             width: 0%;
-            animation: loadProgress 2s ease-out forwards;
+            background: var(--accent-gradient);
+            animation: loadBar 2s var(--ease-out-expo) forwards;
         }
 
-        @keyframes loadProgress {
+        @keyframes loadBar {
             0% { width: 0%; }
             100% { width: 100%; }
         }
 
-        /* Navigation */
+        .loader-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: var(--text-sm);
+            color: var(--accent-cyan);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        /* ========================================
+           NAVIGATION - GLASSMORPHISM + SCROLL
+           ======================================== */
         .nav {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
             padding: 1.5rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            backdrop-filter: blur(20px);
-            background: rgba(5, 5, 8, 0.8);
-            border-bottom: 1px solid var(--glass-border);
-            transition: all 0.3s ease;
+            background: rgba(5, 5, 8, 0.6);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: all 0.4s var(--ease-out-expo);
         }
 
         .nav.scrolled {
             padding: 1rem 5%;
-            background: rgba(5, 5, 8, 0.95);
+            background: rgba(5, 5, 8, 0.85);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
         }
 
         .logo {
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            font-family: 'Space Grotesk', sans-serif;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background: var(--accent-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 12px;
+            width: 36px;
+            height: 36px;
+            background: var(--accent-gradient);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             -webkit-text-fill-color: white;
             box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             list-style: none;
         }
 
         .nav-links a {
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
+            font-size: var(--text-sm);
             font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s;
             position: relative;
             padding: 0.5rem 0;
+            transition: color 0.3s;
         }
 
         .nav-links a::after {
@@ -197,12 +265,12 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--primary);
-            transition: width 0.3s;
+            background: var(--accent-cyan);
+            transition: width 0.3s var(--ease-out-expo);
         }
 
         .nav-links a:hover {
-            color: var(--primary);
+            color: var(--accent-cyan);
         }
 
         .nav-links a:hover::after {
@@ -210,162 +278,183 @@
         }
 
         .nav-cta {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            padding: 0.75rem 2rem;
+            background: var(--accent-gradient);
+            padding: 0.75rem 1.75rem;
             border-radius: 50px;
             color: white;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.3);
+            font-size: var(--text-sm);
+            transition: all 0.3s var(--ease-out-expo);
+            box-shadow: 0 4px 20px rgba(0, 240, 255, 0.3);
+            position: relative;
+            overflow: hidden;
         }
 
         .nav-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(0, 240, 255, 0.5);
+            box-shadow: 0 8px 30px rgba(0, 240, 255, 0.5);
         }
 
-        /* Hero Section */
+        /* ========================================
+           HERO SECTION - ASYMMETRIC LAYOUT
+           ======================================== */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 10rem 5% 6rem;
+            padding: 12rem 5% 8rem;
             position: relative;
             overflow: hidden;
         }
 
+        /* Animated Gradient Background */
         .hero::before {
             content: '';
             position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at bottom, rgba(0, 240, 255, 0.05) 0%, transparent 70%);
+            inset: -50%;
+            background: radial-gradient(circle at 30% 50%, rgba(0, 240, 255, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(112, 0, 255, 0.08) 0%, transparent 50%);
+            animation: bgFloat 15s ease-in-out infinite alternate;
             pointer-events: none;
+        }
+
+        @keyframes bgFloat {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(5%, -5%) scale(1.1); }
         }
 
         .hero-content {
             max-width: 1400px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 6rem;
             align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeUp 1s var(--ease-out-expo) forwards;
+            animation-delay: 0.2s;
+        }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            padding: 0.5rem 1.25rem;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-subtle);
+            padding: 0.5rem 1rem;
             border-radius: 50px;
-            font-size: 0.875rem;
-            color: var(--primary);
-            margin-bottom: 2rem;
+            font-size: var(--text-xs);
+            color: var(--accent-cyan);
+            margin-bottom: 1.5rem;
             backdrop-filter: blur(10px);
+            font-weight: 500;
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            line-height: 1.1;
+            font-size: var(--text-4xl);
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #fff, var(--primary));
+            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.8) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .hero p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
+            font-size: var(--text-lg);
+            color: rgba(255, 255, 255, 0.65);
             margin-bottom: 2.5rem;
-            max-width: 550px;
+            max-width: 500px;
             line-height: 1.7;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
             flex-wrap: wrap;
         }
 
-        .btn-primary {
+        .btn {
             display: inline-flex;
             align-items: center;
             gap: 0.75rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            padding: 1.25rem 2.5rem;
+            padding: 1rem 2rem;
             border-radius: 50px;
-            color: white;
-            text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            box-shadow: 0 10px 40px rgba(0, 240, 255, 0.4);
+            font-size: var(--text-sm);
+            text-decoration: none;
+            transition: all 0.3s var(--ease-out-expo);
             border: none;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--accent-gradient);
+            color: white;
+            box-shadow: 0 4px 25px rgba(0, 240, 255, 0.4);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 20px 60px rgba(0, 240, 255, 0.6);
+            box-shadow: 0 8px 35px rgba(0, 240, 255, 0.6);
         }
 
         .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: var(--glass);
-            border: 2px solid var(--glass-border);
-            padding: 1.25rem 2.5rem;
-            border-radius: 50px;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-subtle);
             color: white;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s;
             backdrop-filter: blur(10px);
         }
 
         .btn-secondary:hover {
-            border-color: var(--primary);
-            background: rgba(0, 240, 255, 0.1);
+            border-color: var(--accent-cyan);
+            background: rgba(0, 240, 255, 0.05);
             transform: translateY(-3px);
         }
 
+        /* 3D Phone Mockup - CSS Only */
         .hero-visual {
             position: relative;
             display: flex;
-            align-items: center;
             justify-content: center;
+            perspective: 1000px;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeUp 1s var(--ease-out-expo) forwards;
+            animation-delay: 0.5s;
         }
 
-        .phone-mockup {
-            width: 320px;
-            height: 640px;
-            background: linear-gradient(135deg, #1a1a2e, #16213e);
-            border-radius: 45px;
+        .phone {
+            width: 280px;
+            height: 560px;
+            background: linear-gradient(145deg, #12121a, #1a1a24);
+            border-radius: 40px;
             padding: 12px;
             box-shadow: 
-                0 0 0 2px rgba(255, 255, 255, 0.1),
-                0 40px 100px rgba(0, 0, 0, 0.6),
-                0 0 80px rgba(0, 240, 255, 0.2);
-            position: relative;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotateY(-8deg); }
-            50% { transform: translateY(-20px) rotateY(-12deg); }
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                0 25px 60px rgba(0, 0, 0, 0.6),
+                0 0 80px rgba(0, 240, 255, 0.15);
+            transform-style: preserve-3d;
+            transition: transform 0.4s var(--ease-out-expo);
         }
 
         .phone-screen {
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, #0f0f1e, #1a1a2e);
-            border-radius: 38px;
+            background: linear-gradient(180deg, #0a0a12, #0f0f18);
+            border-radius: 32px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -375,38 +464,51 @@
             position: relative;
         }
 
-        .qr-display {
-            width: 180px;
-            height: 180px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 16px;
-            position: relative;
-            animation: pulse 3s ease-in-out infinite;
-            box-shadow: 0 0 50px rgba(0, 240, 255, 0.5);
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 50px rgba(0, 240, 255, 0.5); }
-            50% { transform: scale(1.03); box-shadow: 0 0 70px rgba(0, 240, 255, 0.8); }
-        }
-
-        .qr-display::before {
+        .phone-screen::before {
             content: '';
             position: absolute;
-            inset: 25px;
-            background: #0f0f1e;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40%;
+            height: 24px;
+            background: #000;
+            border-radius: 0 0 12px 12px;
+            z-index: 2;
+        }
+
+        .qr-box {
+            width: 160px;
+            height: 160px;
+            background: var(--accent-gradient);
+            border-radius: 14px;
+            position: relative;
+            box-shadow: 0 0 40px rgba(0, 240, 255, 0.4);
+            animation: qrPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes qrPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 40px rgba(0, 240, 255, 0.4); }
+            50% { transform: scale(1.03); box-shadow: 0 0 60px rgba(0, 240, 255, 0.7); }
+        }
+
+        .qr-box::before {
+            content: '';
+            position: absolute;
+            inset: 20px;
+            background: #0a0a12;
             border-radius: 8px;
         }
 
-        .qr-display::after {
+        .qr-box::after {
             content: '';
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 50%;
-            height: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            width: 45%;
+            height: 45%;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
             border-radius: 6px;
             opacity: 0.9;
         }
@@ -416,13 +518,13 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 3px;
-            background: var(--accent);
-            animation: scanLine 2.5s linear infinite;
-            box-shadow: 0 0 15px var(--accent);
+            height: 2px;
+            background: var(--accent-green);
+            animation: scanMove 2.5s linear infinite;
+            box-shadow: 0 0 10px var(--accent-green);
         }
 
-        @keyframes scanLine {
+        @keyframes scanMove {
             0% { top: 0; opacity: 0; }
             10% { opacity: 1; }
             90% { opacity: 1; }
@@ -432,21 +534,169 @@
         .phone-status {
             margin-top: 2rem;
             text-align: center;
-            color: var(--accent);
+            color: var(--accent-green);
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: var(--text-sm);
         }
 
         .phone-status i {
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             margin-bottom: 0.5rem;
             display: block;
         }
 
-        /* Stats Section */
+        /* ========================================
+           TRUST MARQUEE - LOGOS/STATS
+           ======================================== */
+        .trust {
+            padding: 4rem 0;
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            background: rgba(255, 255, 255, 0.01);
+            overflow: hidden;
+        }
+
+        .marquee {
+            display: flex;
+            gap: 4rem;
+            animation: scroll 25s linear infinite;
+            width: max-content;
+        }
+
+        .marquee:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: var(--text-sm);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .trust-item i {
+            color: var(--accent-cyan);
+            font-size: 1.25rem;
+        }
+
+        /* ========================================
+           BENTO GRID FEATURES
+           ======================================== */
+        .features {
+            padding: var(--space-3xl) 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto var(--space-2xl);
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-subtle);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            color: var(--accent-cyan);
+            font-size: var(--text-xs);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .section-header h2 {
+            font-size: var(--text-2xl);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: var(--text-base);
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto auto;
+            gap: 1.5rem;
+        }
+
+        .bento-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 24px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s var(--ease-out-expo);
+        }
+
+        .bento-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 240, 255, 0.1), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s;
+            pointer-events: none;
+        }
+
+        .bento-card:hover::before {
+            opacity: 1;
+        }
+
+        .bento-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .bento-card.large {
+            grid-column: span 2;
+        }
+
+        .bento-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-gradient);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0, 240, 255, 0.3);
+        }
+
+        .bento-card h3 {
+            font-size: var(--text-xl);
+            margin-bottom: 0.75rem;
+        }
+
+        .bento-card p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: var(--text-sm);
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           STATS SECTION - ANIMATED COUNTERS
+           ======================================== */
         .stats {
-            padding: 5rem 5%;
-            background: linear-gradient(180deg, transparent, rgba(0, 240, 255, 0.03));
+            padding: var(--space-2xl) 5%;
+            background: linear-gradient(180deg, transparent, rgba(0, 240, 255, 0.02));
         }
 
         .stats-grid {
@@ -457,26 +707,15 @@
             gap: 2rem;
         }
 
-        .stat-card {
+        .stat-item {
             text-align: center;
-            padding: 2rem 1.5rem;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: 0 20px 40px rgba(0, 240, 255, 0.15);
+            padding: 2rem;
         }
 
         .stat-number {
-            font-size: 2.75rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            font-size: var(--text-2xl);
+            font-weight: 800;
+            background: var(--accent-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -485,109 +724,72 @@
         }
 
         .stat-label {
-            color: var(--text-muted);
-            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: var(--text-sm);
             font-weight: 500;
         }
 
-        /* Features Section */
-        .features {
-            padding: 7rem 5%;
-        }
-
-        .section-header {
+        /* ========================================
+           CTA SECTION
+           ======================================== */
+        .cta {
+            padding: var(--space-3xl) 5%;
             text-align: center;
-            max-width: 750px;
-            margin: 0 auto 5rem;
         }
 
-        .section-tag {
-            display: inline-block;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            color: var(--primary);
-            font-size: 0.875rem;
-            margin-bottom: 1.5rem;
-            backdrop-filter: blur(10px);
-            font-weight: 500;
-        }
-
-        .section-header h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #fff, var(--primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-header p {
-            color: var(--text-muted);
-            font-size: 1.15rem;
-            line-height: 1.7;
-        }
-
-        .features-grid {
-            max-width: 1300px;
+        .cta-box {
+            max-width: 900px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.05), rgba(112, 0, 255, 0.05));
+            border: 1px solid var(--border-subtle);
+            border-radius: 32px;
+            padding: 4rem 3rem;
+            position: relative;
+            overflow: hidden;
         }
 
-        .feature-card {
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 2.5rem 2rem;
-            backdrop-filter: blur(10px);
-            transition: all 0.4s;
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.1) 0%, transparent 60%);
+            animation: ctaGlow 8s ease-in-out infinite alternate;
         }
 
-        .feature-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--primary);
-            box-shadow: 0 30px 60px rgba(0, 240, 255, 0.2);
+        @keyframes ctaGlow {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(10%, 10%); }
         }
 
-        .feature-icon {
-            width: 65px;
-            height: 65px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.75rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.4);
+        .cta-content {
+            position: relative;
+            z-index: 1;
         }
 
-        .feature-card h3 {
-            font-size: 1.4rem;
+        .cta h2 {
+            font-size: var(--text-2xl);
             margin-bottom: 1rem;
-            color: var(--text);
         }
 
-        .feature-card p {
-            color: var(--text-muted);
-            line-height: 1.7;
-            font-size: 1rem;
+        .cta p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: var(--text-base);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* Footer */
+        /* ========================================
+           FOOTER
+           ======================================== */
         .footer {
             padding: 4rem 5% 2rem;
-            border-top: 1px solid var(--glass-border);
-            background: rgba(5, 5, 8, 0.8);
+            border-top: 1px solid var(--border-subtle);
             text-align: center;
-        }
-
-        .footer p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
         }
 
         .footer-links {
@@ -599,20 +801,26 @@
         }
 
         .footer-links a {
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
+            font-size: var(--text-sm);
             transition: color 0.3s;
-            font-size: 0.95rem;
         }
 
         .footer-links a:hover {
-            color: var(--primary);
+            color: var(--accent-cyan);
         }
 
-        .compliance-badges {
+        .footer-bottom {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: var(--text-xs);
+            margin-top: 2rem;
+        }
+
+        .badges {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 1rem;
             margin-top: 1.5rem;
             flex-wrap: wrap;
         }
@@ -621,19 +829,22 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            padding: 0.5rem 1.25rem;
+            background: var(--bg-glass);
+            border: 1px solid var(--border-subtle);
+            padding: 0.5rem 1rem;
             border-radius: 50px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
+            font-size: var(--text-xs);
+            color: rgba(255, 255, 255, 0.7);
         }
 
-        /* Responsive */
+        /* ========================================
+           RESPONSIVE DESIGN
+           ======================================== */
         @media (max-width: 1024px) {
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
+                gap: 4rem;
             }
 
             .hero p {
@@ -648,8 +859,12 @@
                 order: -1;
             }
 
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bento-card.large {
+                grid-column: span 1;
             }
 
             .stats-grid {
@@ -662,49 +877,47 @@
                 display: none;
             }
 
-            .features-grid {
-                grid-template-columns: 1fr;
+            .hero {
+                padding: 10rem 5% 5rem;
+            }
+
+            .phone {
+                width: 240px;
+                height: 480px;
             }
 
             .stats-grid {
                 grid-template-columns: 1fr;
             }
 
-            .phone-mockup {
-                width: 260px;
-                height: 520px;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
+            .cta-box {
+                padding: 3rem 1.5rem;
             }
         }
 
-        /* Scroll Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        /* Reduced Motion Preference */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .marquee {
+                animation: none;
+            }
         }
     </style>
 </head>
 <body>
     <!-- GUARANTEED LOADER -->
     <div class="loader" id="loader">
-        <div class="loader-ring"></div>
-        <div class="loader-text">Loading...</div>
-        <div class="loader-progress">
-            <div class="loader-progress-bar"></div>
-        </div>
+        <div class="loader-logo">🛡️</div>
+        <div class="loader-text">Initializing</div>
+        <div class="loader-bar"></div>
     </div>
 
     <!-- Navigation -->
-    <nav class="nav">
+    <nav class="nav" id="nav">
         <div class="logo">
             <div class="logo-icon">🛡️</div>
             <span>QR Guard</span>
@@ -723,30 +936,30 @@
             <div class="hero-text">
                 <div class="hero-badge">
                     <i class="fas fa-shield-alt"></i>
-                    <span>Advanced QR Security</span>
+                    <span>Enterprise-Grade Security</span>
                 </div>
                 <h1>Scan Smarter.<br>Pay Safer.</h1>
                 <p>Protect yourself from QR scams with AI-powered threat detection and community intelligence. Built for India's digital payment revolution.</p>
                 <div class="hero-buttons">
-                    <a href="https://play.google.com/store/apps/details?id=com.qrguard.app" class="btn-primary">
+                    <a href="https://play.google.com/store/apps/details?id=com.qrguard.app" class="btn btn-primary">
                         <i class="fab fa-google-play"></i>
                         Get It Free
                     </a>
-                    <a href="#features" class="btn-secondary">
+                    <a href="#features" class="btn btn-secondary">
                         <i class="fas fa-play"></i>
-                        Learn More
+                        See How It Works
                     </a>
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="phone-mockup">
+                <div class="phone" id="phone">
                     <div class="phone-screen">
-                        <div class="qr-display">
+                        <div class="qr-box">
                             <div class="scan-line"></div>
                         </div>
                         <div class="phone-status">
                             <i class="fas fa-check-circle"></i>
-                            <div>Safe to Scan</div>
+                            <div>Verified Safe</div>
                         </div>
                     </div>
                 </div>
@@ -754,314 +967,261 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="stats-grid">
-            <div class="stat-card fade-in">
-                <div class="stat-number">50K+</div>
-                <div class="stat-label">Active Users</div>
+    <!-- Trust Marquee -->
+    <section class="trust">
+        <div class="marquee">
+            <div class="trust-item"><i class="fas fa-check-circle"></i> DPDP Act 2023 Compliant</div>
+            <div class="trust-item"><i class="fas fa-award"></i> KSUM Incubated</div>
+            <div class="trust-item"><i class="fas fa-lock"></i> End-to-End Encrypted</div>
+            <div class="trust-item"><i class="fas fa-bolt"></i> 0.8s Scan Speed</div>
+            <div class="trust-item"><i class="fas fa-users"></i> 50K+ Active Users</div>
+            <div class="trust-item"><i class="fas fa-shield-alt"></i> Zero Data Collection</div>
+            <div class="trust-item"><i class="fas fa-check-circle"></i> DPDP Act 2023 Compliant</div>
+            <div class="trust-item"><i class="fas fa-award"></i> KSUM Incubated</div>
+            <div class="trust-item"><i class="fas fa-lock"></i> End-to-End Encrypted</div>
+            <div class="trust-item"><i class="fas fa-bolt"></i> 0.8s Scan Speed</div>
+            <div class="trust-item"><i class="fas fa-users"></i> 50K+ Active Users</div>
+            <div class="trust-item"><i class="fas fa-shield-alt"></i> Zero Data Collection</div>
+        </div>
+    </section>
+
+    <!-- Features Bento Grid -->
+    <section class="features" id="features">
+        <div class="section-header">
+            <div class="section-tag">Core Technology</div>
+            <h2>Built for the Future of Payments</h2>
+            <p>Advanced security meets intuitive design. Every feature engineered for trust and speed.</p>
+        </div>
+        <div class="bento-grid">
+            <div class="bento-card large">
+                <div class="bento-icon"><i class="fas fa-brain"></i></div>
+                <h3>AI-Powered Threat Detection</h3>
+                <p>Machine learning models analyze 50+ threat vectors in real-time. Continuously evolving neural network adapts to new attack patterns before they spread.</p>
             </div>
-            <div class="stat-card fade-in">
-                <div class="stat-number">12K+</div>
-                <div class="stat-label">Scams Blocked</div>
+            <div class="bento-card">
+                <div class="bento-icon"><i class="fas fa-bolt"></i></div>
+                <h3>Lightning Fast</h3>
+                <p>Scan and verify in under 0.8 seconds. Offline-first architecture ensures instant results anywhere, even on 2G networks.</p>
             </div>
-            <div class="stat-card fade-in">
-                <div class="stat-number">5K+</div>
-                <div class="stat-label">Verified Merchants</div>
+            <div class="bento-card">
+                <div class="bento-icon"><i class="fas fa-users"></i></div>
+                <h3>Community Intelligence</h3>
+                <p>Leverage the collective wisdom of 50,000+ users. Weighted trust scoring with Byzantine fault tolerance prevents manipulation.</p>
             </div>
-            <div class="stat-card fade-in">
-                <div class="stat-number">0.8s</div>
-                <div class="stat-label">Avg Scan Time</div>
+            <div class="bento-card large">
+                <div class="bento-icon"><i class="fas fa-lock"></i></div>
+                <h3>Privacy by Design</h3>
+                <p>Your scan history stays on your device. Zero tracking, zero ads, zero data sales. Fully compliant with India's DPDP Act 2023 and global privacy standards.</p>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="section-header">
-            <div class="section-tag">
-                <i class="fas fa-rocket"></i> Advanced Features
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number" data-target="50000">0</div>
+                <div class="stat-label">Active Users</div>
             </div>
-            <h2>Built for the Future of Payments</h2>
-            <p>Experience cutting-edge technology that keeps you safe in the digital payment revolution</p>
+            <div class="stat-item">
+                <div class="stat-number" data-target="12000">0</div>
+                <div class="stat-label">Scams Blocked</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="5000">0</div>
+                <div class="stat-label">Verified Merchants</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="0.8">0</div>
+                <div class="stat-label">Avg Scan Time (s)</div>
+            </div>
         </div>
-        <div class="features-grid">
-            <div class="feature-card fade-in">
-                <div class="feature-icon">
-                    <i class="fas fa-bolt"></i>
-                </div>
-                <h3>Lightning Fast</h3>
-                <p>Scan and verify any QR code in under 0.8 seconds. Works offline with instant results.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">
-                    <i class="fas fa-brain"></i>
-                </div>
-                <h3>AI-Powered</h3>
-                <p>Machine learning detects sophisticated threats that traditional scanners miss.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">
-                    <i class="fas fa-users"></i>
-                </div>
-                <h3>Community Safety</h3>
-                <p>Leverage 50,000+ users with real-time reports and weighted trust scores.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">
-                    <i class="fas fa-lock"></i>
-                </div>
-                <h3>Privacy First</h3>
-                <p>Your data stays on your device. Zero tracking, zero ads. DPDP compliant.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h3>Living Shield™</h3>
-                <p>Continuous monitoring of QR destinations with instant alerts.</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="feature-icon">
-                    <i class="fas fa-mobile-alt"></i>
-                </div>
-                <h3>Works Everywhere</h3>
-                <p>Optimized for low-end devices and slow 2G/3G networks.</p>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-box">
+            <div class="cta-content">
+                <h2>Ready to Scan with Confidence?</h2>
+                <p>Join thousands of Indians who protect their payments with QR Guard. Free forever. No ads. No tracking.</p>
+                <a href="https://play.google.com/store/apps/details?id=com.qrguard.app" class="btn btn-primary">
+                    <i class="fab fa-google-play"></i>
+                    Download on Google Play
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2026 QR Guard. Made with ❤️ in India.</p>
+        <div class="logo" style="justify-content: center; margin-bottom: 1rem;">
+            <div class="logo-icon">🛡️</div>
+            <span>QR Guard</span>
+        </div>
         <div class="footer-links">
             <a href="privacy.html">Privacy Policy</a>
             <a href="terms.html">Terms of Service</a>
-            <a href="mailto:support@qrguard.app">Contact</a>
+            <a href="mailto:support@qrguard.app">Contact Support</a>
         </div>
-        <div class="compliance-badges">
-            <div class="badge">
-                <i class="fas fa-shield-alt"></i>
-                DPDP Act 2023 Compliant
-            </div>
-            <div class="badge">
-                <i class="fas fa-award"></i>
-                KSUM Incubated
-            </div>
-            <div class="badge">
-                <i class="fas fa-lock"></i>
-                Firebase Secure
-            </div>
+        <div class="badges">
+            <div class="badge"><i class="fas fa-shield-alt"></i> DPDP Compliant</div>
+            <div class="badge"><i class="fas fa-award"></i> KSUM Incubated</div>
+            <div class="badge"><i class="fas fa-lock"></i> Secure by Default</div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 QR Guard. All rights reserved. Made with precision in India.
         </div>
     </footer>
 
     <script>
-        // ========================================
-        // GUARANTEED LOADER HIDE - Triple Fallback
-        // ========================================
+        /* ========================================
+           GUARANTEED LOADER HIDE - TRIPLE FALLBACK
+           ======================================== */
         function hideLoader() {
             const loader = document.getElementById('loader');
             if (loader && !loader.classList.contains('hidden')) {
                 loader.classList.add('hidden');
-                // Remove from DOM after transition
                 setTimeout(() => {
                     loader.style.display = 'none';
-                    // Start animations after loader is gone
-                    animateHero();
-                    initScrollAnimations();
-                }, 800);
+                    initApp();
+                }, 1000);
             }
         }
 
-        // Method 1: Window load event
-        window.addEventListener('load', function() {
-            setTimeout(hideLoader, 2000);
-        });
+        window.addEventListener('load', () => setTimeout(hideLoader, 2000));
+        document.addEventListener('DOMContentLoaded', () => setTimeout(hideLoader, 2500));
+        setTimeout(hideLoader, 4000); // Hard fallback
 
-        // Method 2: DOMContentLoaded fallback
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(hideLoader, 2500);
-        });
-
-        // Method 3: HARD TIMEOUT (guaranteed to work)
-        setTimeout(function() {
-            hideLoader();
-        }, 4000);
-
-        // ========================================
-        // Hero Animation (after loader hides)
-        // ========================================
-        function animateHero() {
-            // Animate hero text lines
-            const lines = document.querySelectorAll('.hero h1 span');
-            lines.forEach((line, index) => {
-                setTimeout(() => {
-                    line.style.opacity = '1';
-                    line.style.transform = 'translateY(0)';
-                }, 300 + (index * 150));
-            });
-
-            // Animate hero paragraph
-            const heroP = document.querySelector('.hero p');
-            setTimeout(() => {
-                heroP.style.opacity = '1';
-                heroP.style.transform = 'translateY(0)';
-            }, 800);
-
-            // Animate buttons
-            const buttons = document.querySelector('.hero-buttons');
-            setTimeout(() => {
-                buttons.style.opacity = '1';
-                buttons.style.transform = 'translateY(0)';
-            }, 1000);
+        /* ========================================
+           APP INITIALIZATION & ANIMATIONS
+           ======================================== */
+        function initApp() {
+            initScrollAnimations();
+            initCounters();
+            initMagneticButtons();
+            initCardGlow();
+            initParallax();
+            initNavScroll();
         }
 
-        // ========================================
-        // Scroll Animations (Intersection Observer)
-        // ========================================
+        // Scroll Reveal Animations
         function initScrollAnimations() {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
                         observer.unobserve(entry.target);
                     }
                 });
-            }, observerOptions);
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-            // Observe all fade-in elements
-            document.querySelectorAll('.fade-in').forEach(el => {
+            document.querySelectorAll('.bento-card, .stat-item, .cta-box').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo)';
                 observer.observe(el);
             });
-
-            // Animate stat numbers
-            animateStats();
         }
 
-        function animateStats() {
-            const statNumbers = document.querySelectorAll('.stat-number');
-            
-            statNumbers.forEach(stat => {
-                const target = stat.textContent;
-                const isDecimal = target.includes('.');
-                const numericValue = parseFloat(target);
-                
-                // Simple counter animation
-                let current = 0;
-                const increment = isDecimal ? 0.1 : Math.ceil(numericValue / 50);
+        // Animated Counters
+        function initCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseFloat(counter.dataset.target);
+                const isDecimal = target < 1;
                 const duration = 2000;
-                const steps = duration / 50;
-                const stepValue = numericValue / steps;
-                
-                const animate = () => {
-                    current += stepValue;
-                    if (current >= numericValue) {
-                        stat.textContent = target;
+                const start = performance.now();
+
+                function update(currentTime) {
+                    const elapsed = currentTime - start;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3); // Ease out cubic
+                    
+                    const current = eased * target;
+                    
+                    if (isDecimal) {
+                        counter.textContent = current.toFixed(1) + 's';
                     } else {
-                        stat.textContent = isDecimal 
-                            ? current.toFixed(1) + (target.includes('s') ? 's' : '')
-                            : Math.floor(current) + (target.includes('K') ? 'K+' : target.includes('+') ? '+' : '');
-                        requestAnimationFrame(animate);
+                        counter.textContent = Math.floor(current).toLocaleString() + '+';
                     }
-                };
-                
-                // Start animation when element is visible
+
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    } else {
+                        counter.textContent = isDecimal ? target + 's' : target.toLocaleString() + '+';
+                    }
+                }
+
                 const observer = new IntersectionObserver((entries) => {
                     if (entries[0].isIntersecting) {
-                        animate();
+                        requestAnimationFrame(update);
                         observer.disconnect();
                     }
                 }, { threshold: 0.5 });
-                
-                observer.observe(stat);
+
+                observer.observe(counter);
             });
         }
 
-        // ========================================
-        // Navigation Scroll Effect
-        // ========================================
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('.nav');
-            if (window.scrollY > 100) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
+        // Magnetic Button Effect
+        function initMagneticButtons() {
+            document.querySelectorAll('.btn, .nav-cta').forEach(btn => {
+                btn.addEventListener('mousemove', (e) => {
+                    const rect = btn.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    
+                    btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+                });
 
-        // ========================================
-        // Smooth Scroll for Anchor Links
-        // ========================================
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                btn.addEventListener('mouseleave', () => {
+                    btn.style.transform = '';
+                });
             });
-        });
+        }
 
-        // ========================================
-        // Phone Parallax Effect (Desktop Only)
-        // ========================================
-        document.addEventListener('mousemove', function(e) {
-            const phone = document.querySelector('.phone-mockup');
-            if (phone && window.innerWidth > 1024) {
+        // Card Glow Follow Cursor
+        function initCardGlow() {
+            document.querySelectorAll('.bento-card').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = ((e.clientX - rect.left) / rect.width) * 100;
+                    const y = ((e.clientY - rect.top) / rect.height) * 100;
+                    card.style.setProperty('--mouse-x', `${x}%`);
+                    card.style.setProperty('--mouse-y', `${y}%`);
+                });
+            });
+        }
+
+        // 3D Phone Parallax
+        function initParallax() {
+            const phone = document.getElementById('phone');
+            if (!phone || window.innerWidth <= 1024) return;
+
+            document.addEventListener('mousemove', (e) => {
                 const xAxis = (window.innerWidth / 2 - e.pageX) / 40;
                 const yAxis = (window.innerHeight / 2 - e.pageY) / 40;
                 phone.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-            }
-        });
+            });
+        }
 
-        // Reset phone transform on mobile
-        window.addEventListener('resize', function() {
-            if (window.innerWidth <= 1024) {
-                const phone = document.querySelector('.phone-mockup');
-                if (phone) {
-                    phone.style.transform = '';
+        // Navigation Scroll Effect
+        function initNavScroll() {
+            const nav = document.getElementById('nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
                 }
-            }
-        });
+            });
+        }
 
-        // ========================================
-        // Button Hover Effects Enhancement
-        // ========================================
-        document.querySelectorAll('.btn-primary, .btn-secondary, .nav-cta').forEach(btn => {
-            btn.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-3px)';
-            });
-            btn.addEventListener('mouseleave', function() {
-                this.style.transform = '';
-            });
-        });
-
-        // ========================================
-        // Feature Card Hover Enhancement
-        // ========================================
-        document.querySelectorAll('.feature-card, .stat-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.zIndex = '10';
-            });
-            card.addEventListener('mouseleave', function() {
-                this.style.zIndex = '';
-            });
-        });
-
-        // ========================================
-        // Console Log for Debugging
-        // ========================================
-        console.log('✅ QR Guard $90K Homepage Loaded Successfully');
-        console.log('🔒 All systems operational');
-        console.log('🚀 Ready for production');
+        // Console Signature
+        console.log('%c QR Guard ', 'background: linear-gradient(135deg, #00f0ff, #7000ff); color: white; padding: 8px 16px; border-radius: 4px; font-weight: bold;');
+        console.log('%c $90K Premium Homepage Loaded ', 'color: #00f0ff; font-weight: 600;');
+        console.log('%c Built with precision. Designed for impact. ', 'color: rgba(255,255,255,0.6);');
     </script>
 </body>
 </html>
