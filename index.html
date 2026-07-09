@@ -2,7 +2,7 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="BinRo — Real-time QR code fraud detection for India's UPI and digital payment ecosystem.">
     <meta name="theme-color" content="#0a0a12">
     <title>BinRo | Scan Smart. Pay Safe.</title>
@@ -818,38 +818,119 @@
         }
 
         /* ========================================
+           HAMBURGER / MOBILE MENU
+           ======================================== */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            flex-direction: column;
+            gap: 5px;
+            z-index: 1002;
+            position: relative;
+        }
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: rgba(255,255,255,0.85);
+            border-radius: 2px;
+            transition: all 0.3s var(--ease-out-expo);
+        }
+        .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(5, 5, 8, 0.97);
+            backdrop-filter: blur(20px) saturate(180%);
+            z-index: 1001;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        .mobile-menu.open { display: flex; }
+        .mobile-menu a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
+            padding: 0.75rem 2.5rem;
+            border-radius: 50px;
+            transition: all 0.3s var(--ease-out-expo);
+            border: 1px solid transparent;
+        }
+        .mobile-menu a:hover {
+            color: var(--accent-cyan);
+            border-color: rgba(0,240,255,0.3);
+            background: rgba(0,240,255,0.06);
+        }
+        .mobile-menu .mob-cta {
+            background: var(--accent-gradient);
+            color: white !important;
+            margin-top: 0.5rem;
+            box-shadow: 0 4px 20px rgba(0,240,255,0.35);
+        }
+
+        /* ========================================
            RESPONSIVE DESIGN
            ======================================== */
+        @media (max-width: 1200px) {
+            .bento-grid { grid-template-columns: repeat(2, 1fr); }
+            .bento-card.large { grid-column: span 2; }
+        }
+
         @media (max-width: 1024px) {
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 4rem;
+                gap: 3rem;
             }
-
             .hero p { margin: 0 auto 2.5rem; }
-
             .hero-buttons { justify-content: center; }
-
             .hero-visual { order: -1; }
-
-            .bento-grid { grid-template-columns: 1fr; }
-
-            .bento-card.large { grid-column: span 1; }
-
             .capabilities-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
+            .nav-cta { display: none; }
+            .hamburger { display: flex; }
 
-            .hero { padding: 10rem 5% 5rem; }
+            .hero { padding: 9rem 5% 5rem; }
+            .phone { width: 220px; height: 440px; }
+            .bento-grid { grid-template-columns: 1fr; }
+            .bento-card.large { grid-column: span 1; }
+            .capabilities-grid { grid-template-columns: repeat(2, 1fr); }
+            .cta-box { padding: 2.5rem 1.5rem; }
+            .footer-links { gap: 1.25rem; }
+            .trust { padding: 2.5rem 0; }
+        }
 
-            .phone { width: 240px; height: 480px; }
-
+        @media (max-width: 480px) {
+            .hero { padding: 7.5rem 4% 4rem; }
+            .hero h1 { letter-spacing: -0.03em; }
             .capabilities-grid { grid-template-columns: 1fr; }
+            .cta-box { padding: 2rem 1.25rem; }
+            .features { padding: 5rem 4%; }
+            .footer { padding: 3rem 4% 2rem; }
+            .cap-item { padding: 1.5rem 1rem; }
+            .bento-card { padding: 1.5rem; }
+        }
 
-            .cta-box { padding: 3rem 1.5rem; }
+        @media (max-width: 375px) {
+            .hero { padding: 6.5rem 4% 3rem; }
+            .phone { width: 190px; height: 380px; }
+            .hero-buttons { flex-direction: column; align-items: stretch; }
+            .btn { justify-content: center; width: 100%; }
+            .cta-box { padding: 1.75rem 1rem; }
         }
 
         /* Reduced Motion */
@@ -884,7 +965,18 @@
             <li><a href="terms.html">Terms</a></li>
         </ul>
         <a href="#download" class="nav-cta">Download</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
+
+    <!-- Mobile Full-Screen Menu -->
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+        <a href="#features" onclick="closeMobileMenu()">Features</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="#download" class="mob-cta" onclick="closeMobileMenu()">Download Free</a>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -1066,6 +1158,7 @@
             initCardGlow();
             initParallax();
             initNavScroll();
+            initMobileMenu();
         }
 
         // Scroll Reveal Animations
@@ -1133,6 +1226,35 @@
             window.addEventListener('scroll', () => {
                 nav.classList.toggle('scrolled', window.scrollY > 50);
             });
+        }
+
+        // Hamburger / Mobile Menu
+        function initMobileMenu() {
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (!hamburger || !mobileMenu) return;
+            hamburger.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.toggle('open');
+                hamburger.classList.toggle('open', isOpen);
+                hamburger.setAttribute('aria-expanded', String(isOpen));
+                document.body.style.overflow = isOpen ? 'hidden' : '';
+            });
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target === mobileMenu) closeMobileMenu();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeMobileMenu();
+            });
+        }
+
+        function closeMobileMenu() {
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (!mobileMenu) return;
+            mobileMenu.classList.remove('open');
+            hamburger.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
         }
 
         console.log('%c BinRo ', 'background: linear-gradient(135deg, #00f0ff, #7000ff); color: white; padding: 8px 16px; border-radius: 4px; font-weight: bold;');
