@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service - BinRo</title>
+    <meta name="description" content="BinRo Terms of Service — the rules governing your use of the BinRo app and services.">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -19,6 +20,9 @@
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         nav { display: flex; justify-content: space-between; align-items: center; }
         .logo {
@@ -27,6 +31,7 @@
             background: linear-gradient(135deg, #3B82F6 0%, #10B981 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         .nav-links a {
             text-decoration: none;
@@ -42,35 +47,154 @@
             border-radius: 12px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
         }
-        h1 { font-size: 2.5rem; margin-bottom: 1rem; color: #1f2937; }
-        .last-updated { color: #6b7280; margin-bottom: 2rem; font-style: italic; }
-        h2 { font-size: 1.75rem; margin: 2.5rem 0 1rem; color: #3B82F6; }
-        h3 { font-size: 1.25rem; margin: 1.5rem 0 0.75rem; color: #1f2937; }
+
+        /* Hero */
+        .policy-hero {
+            background: linear-gradient(135deg, #3B82F6 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            padding: 2.5rem 2rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+        .policy-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        .policy-hero .subtitle {
+            opacity: 0.9;
+            font-size: 1.1rem;
+            margin-bottom: 0;
+        }
+        .last-updated {
+            display: inline-block;
+            margin-top: 1rem;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            padding: 0.3rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Table of contents */
+        .toc {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2.5rem;
+        }
+        .toc h2 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #6b7280;
+            margin: 0 0 1rem;
+        }
+        .toc ol {
+            margin: 0;
+            padding-left: 1.2rem;
+            columns: 2;
+            column-gap: 2rem;
+        }
+        .toc li { margin-bottom: 0.35rem; }
+        .toc a {
+            text-decoration: none;
+            color: #3B82F6;
+            font-size: 0.95rem;
+        }
+        .toc a:hover { text-decoration: underline; }
+
+        /* Headings */
+        h2 {
+            font-size: 1.6rem;
+            margin: 3rem 0 1rem;
+            color: #3B82F6;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e0edff;
+            scroll-margin-top: 80px;
+        }
+        h3 {
+            font-size: 1.15rem;
+            margin: 1.75rem 0 0.6rem;
+            color: #1f2937;
+        }
         p { margin-bottom: 1rem; line-height: 1.8; }
-        ul, ol { margin: 1rem 0 1rem 2rem; }
+        ul, ol { margin: 0.75rem 0 1rem 2rem; }
         li { margin-bottom: 0.5rem; line-height: 1.8; }
+
+        /* Callout boxes */
+        .callout {
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+        }
+        .callout-icon { font-size: 1.25rem; flex-shrink: 0; }
+        .callout.info    { background: #eff6ff; border-left: 4px solid #3B82F6; }
+        .callout.warning { background: #fffbeb; border-left: 4px solid #f59e0b; }
+        .callout.success { background: #f0fdf4; border-left: 4px solid #10B981; }
+        .callout.danger  { background: #fef2f2; border-left: 4px solid #ef4444; }
+        .callout p { margin: 0; }
+
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0 1.5rem;
+            font-size: 0.95rem;
+        }
+        .data-table th {
+            background: #f1f5f9;
+            text-align: left;
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+            color: #374151;
+            border: 1px solid #e2e8f0;
+        }
+        .data-table td {
+            padding: 0.75rem 1rem;
+            border: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+        .data-table tr:nth-child(even) td { background: #f8fafc; }
+
+        /* Contact card */
+        .contact-card {
+            background: linear-gradient(135deg, #f0f9ff 0%, #f5f3ff 100%);
+            border: 1px solid #c7d2fe;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+        .contact-card p { margin: 0.4rem 0; }
+        .contact-card a { color: #3B82F6; }
+
+        /* Back link */
         .back-link {
             display: inline-block;
-            margin-top: 2rem;
+            margin-top: 2.5rem;
             color: #3B82F6;
             text-decoration: none;
             font-weight: 500;
         }
         .back-link:hover { text-decoration: underline; }
-        .warning {
-            background: #fef3c7;
-            border-left: 4px solid #f59e0b;
-            padding: 1rem;
-            margin: 1.5rem 0;
-            border-radius: 0 8px 8px 0;
-        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .content { padding: 2rem 1.5rem; margin: 1rem; }
-            h1 { font-size: 2rem; }
+            .content { padding: 1.75rem 1.25rem; margin: 1rem; }
+            .policy-hero h1 { font-size: 1.85rem; }
+            .toc ol { columns: 1; }
+            .data-table { font-size: 0.85rem; }
+            .data-table th, .data-table td { padding: 0.5rem 0.65rem; }
+            .nav-links a { margin-left: 1rem; font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
+
     <header>
         <nav class="container">
             <div class="logo">🛡️ BinRo</div>
@@ -81,204 +205,512 @@
             </div>
         </nav>
     </header>
-    
+
     <div class="container">
         <div class="content">
-            <h1>Terms of Service</h1>
-            <p class="last-updated">Last Updated: April 2026</p>
-            
-            <div class="warning">
-                <strong>⚠️ Important:</strong> BinRo is a verification tool, not a payment processor. 
-                You are solely responsible for verifying QR codes before making any payments. 
-                We do not guarantee the accuracy of community reports or safety scores.
+
+            <!-- Hero -->
+            <div class="policy-hero">
+                <h1>Terms of Service</h1>
+                <p class="subtitle">Please read these terms carefully before using BinRo.</p>
+                <span class="last-updated">Effective Date: July 9, 2026 &nbsp;|&nbsp; Version 2.0</span>
             </div>
-            
-            <h2>1. Agreement to Terms</h2>
-            <p>By downloading, accessing, or using BinRo ("the App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the App.</p>
-            <p>These Terms constitute a legally binding agreement between you and BinRo ("we," "our," or "us").</p>
-            
-            <h2>2. Description of Service</h2>
-            <p>BinRo is a mobile application that provides:</p>
-            <ul>
-                <li><strong>QR Code Scanning:</strong> Scan and decode QR codes and barcodes using your device camera</li>
-                <li><strong>Community Safety Reports:</strong> View and submit user reports about QR code safety</li>
-                <li><strong>Trust Scoring:</strong> Display community-generated trust scores for QR codes</li>
-                <li><strong>QR Code Generation:</strong> Create custom QR codes with branding options</li>
-                <li><strong>Living Shield™:</strong> Monitor QR code destinations for changes (premium feature)</li>
-                <li><strong>Local History:</strong> Store your scan history privately on your device</li>
-            </ul>
-            
-            <h2>3. Eligibility</h2>
-            <p>You must be at least 13 years old to use BinRo. By using the App, you represent and warrant that:</p>
-            <ul>
-                <li>You are at least 13 years old</li>
-                <li>You have the legal capacity to enter into these Terms</li>
-                <li>Your use of the App does not violate any applicable law or regulation</li>
-            </ul>
-            
-            <h2>4. Account Registration</h2>
-            
-            <h3>4.1 Optional Accounts</h3>
-            <p>Most features of BinRo can be used without an account. However, to access certain features (saving generated QR codes, submitting reports, merchant verification), you may need to create an account using Google Sign-In.</p>
-            
-            <h3>4.2 Account Security</h3>
-            <p>You are responsible for:</p>
-            <ul>
-                <li>Maintaining the confidentiality of your Google account credentials</li>
-                <li>All activities that occur under your account</li>
-                <li>Notifying us immediately of any unauthorized use</li>
-            </ul>
-            
-            <h3>4.3 Account Termination</h3>
-            <p>We reserve the right to suspend or terminate your account at any time, without notice, for conduct that we believe violates these Terms or is harmful to other users or us.</p>
-            
-            <h2>5. User Responsibilities</h2>
-            
-            <h3>5.1 Acceptable Use</h3>
-            <p>You agree to use BinRo only for lawful purposes and in accordance with these Terms. You agree NOT to:</p>
-            <ul>
-                <li>Use the App to scan QR codes for illegal, fraudulent, or harmful purposes</li>
-                <li>Submit false, misleading, or malicious scam reports or comments</li>
-                <li>Attempt to hack, reverse engineer, decompile, or modify the App</li>
-                <li>Use the App to harass, threaten, defraud, or harm other users</li>
-                <li>Interfere with or disrupt the App's servers, networks, or Firebase infrastructure</li>
-                <li>Automate access to the App (bots, scrapers, scripts) without our written permission</li>
-                <li>Impersonate any person or entity or misrepresent your affiliation</li>
-            </ul>
-            
-            <h3>5.2 Content You Submit</h3>
-            <p>When you submit comments, reports, or other content to BinRo:</p>
-            <ul>
-                <li>You grant us a worldwide, non-exclusive, royalty-free license to use, reproduce, modify, and display your content in connection with the App</li>
-                <li>You represent that you own or have the necessary rights to submit the content</li>
-                <li>You are solely responsible for the content you submit and its accuracy</li>
-            </ul>
-            
-            <h3>5.3 QR Code Verification Responsibility</h3>
-            <div class="warning">
-                <strong>⚠️ Critical Disclaimer:</strong> BinRo provides community-powered safety information as a tool to assist your decision-making. 
-                <strong>YOU are solely responsible for verifying the legitimacy of any QR code before making payments or sharing sensitive information.</strong> 
-                We do not guarantee the accuracy, completeness, or timeliness of any safety reports or trust scores.
+
+            <!-- Table of Contents -->
+            <div class="toc">
+                <h2>Contents</h2>
+                <ol>
+                    <li><a href="#s1">Agreement to Terms</a></li>
+                    <li><a href="#s2">What BinRo Is (and Is Not)</a></li>
+                    <li><a href="#s3">Description of Services</a></li>
+                    <li><a href="#s4">Eligibility</a></li>
+                    <li><a href="#s5">Account Registration</a></li>
+                    <li><a href="#s6">Acceptable Use</a></li>
+                    <li><a href="#s7">User-Submitted Content</a></li>
+                    <li><a href="#s8">Payments &amp; In-App Purchases</a></li>
+                    <li><a href="#s9">QR Code Verification — Your Responsibility</a></li>
+                    <li><a href="#s10">Disclaimer of Warranties</a></li>
+                    <li><a href="#s11">Limitation of Liability</a></li>
+                    <li><a href="#s12">Indemnification</a></li>
+                    <li><a href="#s13">Intellectual Property</a></li>
+                    <li><a href="#s14">Third-Party Services</a></li>
+                    <li><a href="#s15">Modifications to Service</a></li>
+                    <li><a href="#s16">Suspension &amp; Termination</a></li>
+                    <li><a href="#s17">Governing Law &amp; Disputes</a></li>
+                    <li><a href="#s18">Changes to These Terms</a></li>
+                    <li><a href="#s19">Miscellaneous</a></li>
+                    <li><a href="#s20">Contact Us</a></li>
+                </ol>
             </div>
-            
-            <h2>6. Disclaimer of Warranties</h2>
-            
-            <h3>6.1 "As Is" Service</h3>
-            <p>BinRo is provided on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind, either express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, or non-infringement.</p>
-            
-            <h3>6.2 No Guarantee of Accuracy</h3>
-            <p>We do not guarantee that:</p>
+
+            <div class="callout warning">
+                <span class="callout-icon">⚠️</span>
+                <p><strong>Key point upfront:</strong> BinRo is a QR code verification and fraud detection tool — not a payment processor. We do not handle, transfer, or guarantee any financial transactions. You remain solely responsible for verifying any QR code before making a payment. Our safety scores and community reports are informational aids, not financial guarantees.</p>
+            </div>
+
+            <!-- 1 -->
+            <h2 id="s1">1. Agreement to Terms</h2>
+            <p>By downloading, installing, accessing, or using BinRo (the "App") or any associated website or service (collectively, the "Services"), you agree to be legally bound by these Terms of Service ("Terms").</p>
+            <p>If you do not agree with any part of these Terms, you must immediately stop using the Services and, if applicable, uninstall the App.</p>
+            <p>These Terms form a legally binding agreement between you ("User", "you") and BinRo ("we", "us", "our"), a software project operated under the laws of India and supported by the Kerala Startup Mission.</p>
+            <p>These Terms are to be read alongside our <a href="privacy.html" style="color:#3B82F6;">Privacy Policy</a>, which is incorporated herein by reference. In the event of a conflict between these Terms and the Privacy Policy on matters of data handling, the Privacy Policy prevails.</p>
+
+            <!-- 2 -->
+            <h2 id="s2">2. What BinRo Is (and Is Not)</h2>
+
+            <div class="callout info">
+                <span class="callout-icon">ℹ️</span>
+                <p><strong>BinRo is a security verification tool.</strong> It scans and analyses QR codes to help you make informed decisions about their safety. It does not process payments, transfer money, hold funds, or act as a payment intermediary of any kind.</p>
+            </div>
+
+            <table class="data-table">
+                <thead>
+                    <tr><th>BinRo IS</th><th>BinRo IS NOT</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>A QR code scanning and fraud-detection tool</td>
+                        <td>A payment app or payment processor</td>
+                    </tr>
+                    <tr>
+                        <td>A community safety reporting platform</td>
+                        <td>A bank, financial institution, or money transmitter</td>
+                    </tr>
+                    <tr>
+                        <td>A QR code generator for personal/business use</td>
+                        <td>A guarantee that a scanned QR code is safe</td>
+                    </tr>
+                    <tr>
+                        <td>An informational tool to assist your decisions</td>
+                        <td>A substitute for your own due diligence</td>
+                    </tr>
+                    <tr>
+                        <td>Compliant with India's DPDP Act 2023</td>
+                        <td>Liable for losses from QR code fraud you experience</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- 3 -->
+            <h2 id="s3">3. Description of Services</h2>
+            <p>BinRo provides the following features and services:</p>
+
+            <h3>3.1 Core Features (Free)</h3>
             <ul>
-                <li>All malicious QR codes will be detected or flagged</li>
-                <li>Community reports and trust scores are 100% accurate or unbiased</li>
-                <li>The App will be error-free, uninterrupted, or secure</li>
-                <li>QR codes you generate will work with all scanning applications</li>
-                <li>Living Shield™ monitoring will detect all destination changes in real-time</li>
+                <li><strong>QR Code Scanning:</strong> Scan and decode QR codes using your device camera or gallery images. Supports all standard QR formats and 80+ Indian payment app formats including UPI and BharatQR.</li>
+                <li><strong>Real-Time Safety Analysis:</strong> Each scanned QR code is checked against our fraud intelligence database, Google Safe Browsing API, and community reports to generate a safety score.</li>
+                <li><strong>Community Trust Scores:</strong> View aggregated trust ratings submitted by other BinRo users for scanned QR codes.</li>
+                <li><strong>Community Reports:</strong> Submit safety reports and comments on QR codes to help other users.</li>
+                <li><strong>QR Code Generation:</strong> Create custom QR codes for URLs, contact details, Wi-Fi credentials, text, and more.</li>
+                <li><strong>Scan History:</strong> View and manage a history of QR codes you have scanned, stored securely in your account.</li>
             </ul>
-            
-            <h3>6.3 Third-Party Content</h3>
-            <p>BinRo displays content from third parties (user reports, merchant information, QR code destinations). We do not endorse, verify, or take responsibility for third-party content.</p>
-            
-            <h2>7. Limitation of Liability</h2>
-            
-            <h3>7.1 No Liability for Financial Loss</h3>
-            <p>To the maximum extent permitted by applicable law, BinRo and its developers, affiliates, and contributors shall NOT be liable for any direct, indirect, incidental, special, consequential, or punitive damages, including but not limited to:</p>
+
+            <h3>3.2 Account Features (Requires Registration)</h3>
             <ul>
-                <li>Financial losses from scanning malicious QR codes</li>
-                <li>Fraudulent transactions or unauthorized payments</li>
-                <li>Reliance on inaccurate community safety reports</li>
-                <li>Data loss, corruption, or unauthorized access</li>
-                <li>App errors, crashes, or service interruptions</li>
+                <li>Saving and managing generated QR codes across devices</li>
+                <li>Submitting and tracking community reports</li>
+                <li>Following specific QR codes for activity notifications</li>
+                <li>Social features: following other users, friend connections, and activity feeds</li>
+                <li>Merchant verification badge (for eligible businesses)</li>
             </ul>
-            
-            <h3>7.2 Maximum Liability</h3>
-            <p>In no event shall our total liability to you for all claims arising out of or related to your use of BinRo exceed INR 1,000 (One Thousand Indian Rupees).</p>
-            
-            <h3>7.3 Basis of Bargain</h3>
-            <p>The limitations and exclusions of liability in this section apply to all claims, regardless of the legal theory (contract, tort, strict liability, or otherwise), even if we have been advised of the possibility of such damages.</p>
-            
-            <h2>8. Indemnification</h2>
-            <p>You agree to indemnify, defend, and hold harmless BinRo, its developers, affiliates, officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, costs, or expenses (including reasonable attorneys' fees) arising out of or related to:</p>
+
+            <h3>3.3 Optional Paid Features</h3>
             <ul>
-                <li>Your use of the App</li>
-                <li>Your violation of these Terms</li>
-                <li>Your violation of any third-party rights (including intellectual property or privacy rights)</li>
-                <li>False, misleading, or malicious content you submit</li>
-                <li>Your negligence or willful misconduct</li>
+                <li>Premium features or support contributions available as optional in-app purchases through Google Play Billing (Android) or Apple In-App Purchase (iOS)</li>
+                <li>Core safety features remain entirely free and will continue to be free</li>
             </ul>
-            
-            <h2>9. Intellectual Property</h2>
-            
-            <h3>9.1 Our Intellectual Property</h3>
-            <p>BinRo and its original content, features, functionality, design, and branding are owned by BinRo and are protected by Indian and international copyright, trademark, patent, trade secret, and other intellectual property laws.</p>
-            
-            <h3>9.2 License Grant</h3>
-            <p>Subject to these Terms, we grant you a limited, non-exclusive, non-transferable, revocable license to:</p>
+
+            <p>We reserve the right to add, modify, or discontinue any feature at any time. See <a href="#s15" style="color:#3B82F6;">Section 15</a> for details.</p>
+
+            <!-- 4 -->
+            <h2 id="s4">4. Eligibility</h2>
+            <p>You must meet the following requirements to use BinRo:</p>
             <ul>
-                <li>Download, install, and use the App for personal, non-commercial purposes</li>
-                <li>Access and use the App's features in accordance with these Terms</li>
+                <li>You must be at least <strong>13 years old</strong>. If you are under 18, your parent or legal guardian must review and agree to these Terms on your behalf.</li>
+                <li>You must have the legal capacity to enter into a binding agreement under applicable law.</li>
+                <li>Your use of BinRo must not violate any applicable law, regulation, or court order in your jurisdiction.</li>
+                <li>You must not have been previously suspended or permanently banned from BinRo.</li>
             </ul>
-            
-            <h3>9.3 Restrictions</h3>
+            <p>By using BinRo, you represent and warrant that you meet all of the above eligibility requirements. We reserve the right to verify eligibility and to deny access to any user who does not qualify.</p>
+
+            <!-- 5 -->
+            <h2 id="s5">5. Account Registration</h2>
+
+            <h3>5.1 Optional Registration</h3>
+            <p>Basic QR scanning features are available without creating an account. An account is required to access community features, saved QR codes, social features, and in-app purchase benefits.</p>
+
+            <h3>5.2 How to Register</h3>
+            <p>Accounts are created via:</p>
+            <ul>
+                <li><strong>Google Sign-In</strong> — using your existing Google account via Firebase Authentication</li>
+                <li><strong>Email &amp; Password</strong> — with your email address and a secure password</li>
+            </ul>
+
+            <h3>5.3 Accuracy of Information</h3>
+            <p>You agree to provide accurate, current, and complete information when creating your account. You must keep your profile information up to date. Providing false information (including impersonating another person or entity) is prohibited and may result in immediate account termination.</p>
+
+            <h3>5.4 Account Security</h3>
+            <p>You are solely responsible for:</p>
+            <ul>
+                <li>Maintaining the confidentiality of your login credentials</li>
+                <li>All activities that occur under your account, whether or not authorised by you</li>
+                <li>Notifying us immediately at <a href="mailto:ahmedsameerbinan2@gmail.com" style="color:#3B82F6;">ahmedsameerbinan2@gmail.com</a> if you become aware of any unauthorised access or security breach</li>
+            </ul>
+            <p>We will not be liable for any losses or damages arising from your failure to maintain account security or from unauthorised use of your account.</p>
+
+            <h3>5.5 One Account Per User</h3>
+            <p>You may only maintain one BinRo account. Creating multiple accounts to circumvent a ban, game trust scores, or manipulate community reports is prohibited.</p>
+
+            <!-- 6 -->
+            <h2 id="s6">6. Acceptable Use</h2>
+
+            <h3>6.1 Permitted Use</h3>
+            <p>You may use BinRo for personal, non-commercial purposes in accordance with these Terms and all applicable laws.</p>
+
+            <h3>6.2 Prohibited Conduct</h3>
+            <p>You agree that you will NOT:</p>
+            <ul>
+                <li>Use BinRo for any illegal, fraudulent, or harmful purpose</li>
+                <li>Submit false, misleading, defamatory, or malicious safety reports, trust votes, or comments</li>
+                <li>Attempt to artificially manipulate trust scores or community safety ratings</li>
+                <li>Coordinate with other users to mass-report legitimate QR codes as fraudulent (coordinated abuse)</li>
+                <li>Attempt to reverse engineer, decompile, disassemble, or derive the source code of the App</li>
+                <li>Interfere with or disrupt BinRo's servers, backend APIs, Firebase infrastructure, or network connections</li>
+                <li>Use automated bots, scrapers, crawlers, or scripts to access or interact with BinRo without our prior written permission</li>
+                <li>Impersonate any person, business, or entity, or misrepresent your identity or affiliation</li>
+                <li>Upload or transmit any malware, viruses, ransomware, or other malicious code</li>
+                <li>Attempt to gain unauthorised access to any BinRo system, database, or other user's account</li>
+                <li>Harass, threaten, intimidate, or harm any other user</li>
+                <li>Use BinRo to generate QR codes that link to malware, phishing pages, illegal content, or fraudulent payment destinations</li>
+                <li>Violate any applicable law, including Indian IT law, data protection law, or financial regulation</li>
+            </ul>
+
+            <div class="callout danger">
+                <span class="callout-icon">🚫</span>
+                <p>Violation of these rules may result in immediate account suspension, permanent ban, and, where required by law, reporting to relevant authorities.</p>
+            </div>
+
+            <!-- 7 -->
+            <h2 id="s7">7. User-Submitted Content</h2>
+
+            <h3>7.1 What You Can Submit</h3>
+            <p>BinRo allows you to submit community reports, safety votes, comments, and other content ("User Content") related to QR codes and merchants.</p>
+
+            <h3>7.2 License You Grant Us</h3>
+            <p>By submitting User Content to BinRo, you grant us a worldwide, non-exclusive, royalty-free, sub-licensable, perpetual license to use, reproduce, modify, adapt, aggregate, display, and distribute that content in connection with operating and improving BinRo's services, including our threat intelligence database.</p>
+
+            <h3>7.3 Your Responsibility for Content</h3>
+            <p>You are solely responsible for the accuracy, legality, and appropriateness of any User Content you submit. You represent and warrant that:</p>
+            <ul>
+                <li>Your User Content is truthful and based on genuine first-hand experience or verified information</li>
+                <li>Your User Content does not infringe any third-party intellectual property, privacy, or other rights</li>
+                <li>Your User Content does not contain false accusations, defamatory statements, or malicious misinformation</li>
+            </ul>
+
+            <h3>7.4 Our Right to Remove Content</h3>
+            <p>We reserve the right — but have no obligation — to review, moderate, edit, or remove any User Content at our sole discretion, at any time, without notice. Content that violates these Terms, applicable law, or community standards may be removed immediately.</p>
+
+            <h3>7.5 Content Persistence</h3>
+            <p>User Content you submit may persist in anonymised, aggregated form as part of our threat intelligence database even after your account is deleted. This is described further in our <a href="privacy.html" style="color:#3B82F6;">Privacy Policy</a>.</p>
+
+            <!-- 8 -->
+            <h2 id="s8">8. Payments &amp; In-App Purchases</h2>
+
+            <h3>8.1 Payment Processors</h3>
+            <p>All in-app purchases within BinRo are processed exclusively by the official billing systems of your device's app store:</p>
+            <ul>
+                <li><strong>Android:</strong> Google Play Billing — subject to Google's <a href="https://play.google.com/about/play-terms/" target="_blank" rel="noopener" style="color:#3B82F6;">Play Terms of Service</a> and <a href="https://payments.google.com/payments/apis-secure/get_legal_document?ldo=0&ldt=privacynotice&ldl=en" target="_blank" rel="noopener" style="color:#3B82F6;">Google Payments Privacy Notice</a></li>
+                <li><strong>iOS:</strong> Apple In-App Purchase — subject to Apple's <a href="https://www.apple.com/legal/internet-services/itunes/us/terms.html" target="_blank" rel="noopener" style="color:#3B82F6;">App Store Terms</a></li>
+            </ul>
+            <p>For website donations, payments are processed by <strong>Razorpay Software Private Limited</strong>, subject to Razorpay's <a href="https://razorpay.com/terms/" target="_blank" rel="noopener" style="color:#3B82F6;">Terms of Service</a>.</p>
+
+            <h3>8.2 What BinRo Never Receives</h3>
+            <div class="callout success">
+                <span class="callout-icon">🔒</span>
+                <p>BinRo does not collect, process, or store your payment credentials at any point. We never see your card number, CVV, UPI ID, bank account details, net banking credentials, or Apple ID password. All payment data is handled entirely within Google's or Apple's secure systems.</p>
+            </div>
+
+            <h3>8.3 What BinRo Does Receive</h3>
+            <p>After a completed purchase, the app store provides BinRo with only:</p>
+            <ul>
+                <li>Transaction ID (a unique identifier for the purchase)</li>
+                <li>Product ID (which item or feature was purchased)</li>
+                <li>Purchase timestamp</li>
+                <li>Verification receipt or token (used solely to confirm the purchase with the app store server)</li>
+                <li>Subscription status, where applicable</li>
+            </ul>
+            <p>This information is used only to activate the features you purchased within BinRo.</p>
+
+            <h3>8.4 Pricing</h3>
+            <p>Prices for any optional features or purchases are displayed in the App before you confirm a purchase. Prices are set in Indian Rupees (INR) or the local currency of your app store region and are inclusive of applicable taxes where required.</p>
+
+            <h3>8.5 Refunds</h3>
+            <p>Because payments are processed by third-party app stores, refund requests are handled entirely by them:</p>
+            <ul>
+                <li><strong>Android (Google Play):</strong> Request a refund via <a href="https://support.google.com/googleplay/answer/2479637" target="_blank" rel="noopener" style="color:#3B82F6;">Google Play Support</a>, subject to Google's refund policy.</li>
+                <li><strong>iOS (Apple):</strong> Request a refund via <a href="https://support.apple.com/en-in/HT204084" target="_blank" rel="noopener" style="color:#3B82F6;">Apple Support</a>, subject to Apple's refund policy.</li>
+                <li><strong>Website donations (Razorpay):</strong> Contact us at <a href="mailto:ahmedsameerbinan2@gmail.com" style="color:#3B82F6;">ahmedsameerbinan2@gmail.com</a> within 7 days. Refunds are at our discretion and are not guaranteed for digital features already delivered.</li>
+            </ul>
+            <p>We are not able to process refunds directly for in-app purchases made through Google Play or the Apple App Store. Please contact the respective store's support team.</p>
+
+            <h3>8.6 Subscription Auto-Renewal</h3>
+            <p>If BinRo offers any subscription-based features, subscriptions auto-renew through the app store's billing system unless cancelled at least 24 hours before the renewal date. You can manage or cancel subscriptions at any time through your Google Play or Apple App Store account settings.</p>
+
+            <!-- 9 -->
+            <h2 id="s9">9. QR Code Verification — Your Responsibility</h2>
+
+            <div class="callout warning">
+                <span class="callout-icon">⚠️</span>
+                <p><strong>Critical disclaimer:</strong> BinRo's safety scores, community reports, and threat analysis are tools to assist your decision-making — they are <strong>not guarantees</strong>. No automated system can detect 100% of fraud attempts. <strong>You are solely responsible</strong> for verifying any QR code before making a payment or sharing sensitive information.</p>
+            </div>
+
+            <p>Specifically, you acknowledge and accept that:</p>
+            <ul>
+                <li>BinRo's safety analysis may not detect all malicious, fraudulent, or spoofed QR codes, especially newly created ones that have not yet been reported by the community or flagged by threat intelligence feeds.</li>
+                <li>A "Safe" or high-trust score from BinRo does not guarantee that a QR code is legitimate or that any resulting transaction will be secure.</li>
+                <li>Community trust scores and reports reflect the opinions and experiences of other users, who may themselves be mistaken, biased, or acting in bad faith.</li>
+                <li>BinRo does not verify the identity of merchants whose QR codes are scanned, unless that merchant holds a verified badge issued by BinRo after our own verification process.</li>
+                <li>You should exercise your own judgement before making any financial transaction, regardless of BinRo's safety assessment.</li>
+                <li>BinRo is not liable for any financial loss, fraudulent transaction, or other harm arising from your reliance on BinRo's safety information. See <a href="#s11" style="color:#3B82F6;">Section 11</a> for the full liability limitation.</li>
+            </ul>
+
+            <!-- 10 -->
+            <h2 id="s10">10. Disclaimer of Warranties</h2>
+
+            <h3>10.1 "As Is" Service</h3>
+            <p>BinRo is provided on an <strong>"AS IS"</strong> and <strong>"AS AVAILABLE"</strong> basis, without any warranties of any kind — express, implied, or statutory. To the fullest extent permitted by applicable Indian law, we expressly disclaim all warranties, including but not limited to:</p>
+            <ul>
+                <li>Implied warranties of merchantability and fitness for a particular purpose</li>
+                <li>Warranties of non-infringement, title, or quiet enjoyment</li>
+                <li>Warranties that the App will be error-free, uninterrupted, secure, or free of viruses or other harmful components</li>
+            </ul>
+
+            <h3>10.2 No Guarantee of Results</h3>
+            <p>We do not warrant or guarantee that:</p>
+            <ul>
+                <li>BinRo will detect all malicious, fraudulent, or dangerous QR codes</li>
+                <li>Community reports and trust scores are accurate, complete, unbiased, or up to date</li>
+                <li>QR codes you generate will be compatible with all scanning applications or devices</li>
+                <li>The App will be available at any particular time or location</li>
+                <li>Any errors or defects in the App will be corrected</li>
+                <li>Third-party services (Firebase, Google Safe Browsing, OpenAI) will be available or accurate at all times</li>
+            </ul>
+
+            <h3>10.3 Third-Party Content</h3>
+            <p>BinRo displays content provided by third parties — including community user reports, merchant information, and QR code destination data. We do not endorse, verify, or assume responsibility for any third-party content. Your reliance on such content is entirely at your own risk.</p>
+
+            <!-- 11 -->
+            <h2 id="s11">11. Limitation of Liability</h2>
+
+            <h3>11.1 Exclusion of Consequential Damages</h3>
+            <p>To the maximum extent permitted by applicable law, BinRo, its developers, contributors, affiliates, officers, and agents shall <strong>not</strong> be liable for any:</p>
+            <ul>
+                <li>Indirect, incidental, special, consequential, or punitive damages</li>
+                <li>Financial losses or fraudulent transactions arising from scanning a malicious QR code</li>
+                <li>Losses from reliance on inaccurate community safety reports or trust scores</li>
+                <li>Loss of data, profits, goodwill, or business opportunity</li>
+                <li>Damages resulting from App errors, crashes, downtime, or service interruptions</li>
+                <li>Damages from unauthorised access to your account or data</li>
+                <li>Any damages arising from third-party services used within BinRo (Firebase, OpenAI, Google Safe Browsing, Razorpay, etc.)</li>
+            </ul>
+            <p>This exclusion applies regardless of the legal theory of the claim (contract, tort, strict liability, or otherwise), even if we have been advised of the possibility of such damages.</p>
+
+            <h3>11.2 Maximum Aggregate Liability</h3>
+            <p>In no event shall our total aggregate liability to you for all claims arising out of or relating to your use of BinRo exceed <strong>INR 1,000 (One Thousand Indian Rupees)</strong>, or the total amount you paid to BinRo in the 3 months immediately preceding the event giving rise to the claim, whichever is greater.</p>
+
+            <h3>11.3 Jurisdictional Limitations</h3>
+            <p>Some jurisdictions do not allow the exclusion of certain warranties or limitation of liability for certain types of damages. In such jurisdictions, our liability will be limited to the maximum extent permitted by applicable law.</p>
+
+            <!-- 12 -->
+            <h2 id="s12">12. Indemnification</h2>
+            <p>You agree to indemnify, defend, and hold harmless BinRo, its developers, contributors, officers, affiliates, and agents from and against any and all claims, liabilities, damages, losses, costs, and expenses (including reasonable legal fees) arising out of or related to:</p>
+            <ul>
+                <li>Your use of BinRo or the Services</li>
+                <li>Your violation of any provision of these Terms</li>
+                <li>Your violation of any third-party right, including intellectual property rights, privacy rights, or proprietary rights</li>
+                <li>Any User Content you submit — including false, misleading, or malicious reports</li>
+                <li>Your negligence or wilful misconduct</li>
+                <li>Any claim by a third party resulting from your use of BinRo</li>
+            </ul>
+            <p>We reserve the right to assume exclusive control of the defence of any matter subject to indemnification by you, at your expense. You agree to cooperate fully with our defence of any such claim.</p>
+
+            <!-- 13 -->
+            <h2 id="s13">13. Intellectual Property</h2>
+
+            <h3>13.1 Our Ownership</h3>
+            <p>BinRo, its name, logo, brand, design, source code, algorithms, threat intelligence database, and all original content are the proprietary intellectual property of BinRo and are protected under Indian and international copyright, trademark, trade secret, and patent law. All rights not expressly granted to you in these Terms are reserved.</p>
+
+            <h3>13.2 License to You</h3>
+            <p>Subject to your compliance with these Terms, we grant you a limited, personal, non-exclusive, non-transferable, revocable license to:</p>
+            <ul>
+                <li>Download, install, and use the App on a device you own or control, for personal, non-commercial purposes only</li>
+                <li>Access and use the features of the Services as made available to you</li>
+            </ul>
+
+            <h3>13.3 Restrictions</h3>
             <p>You may NOT:</p>
             <ul>
-                <li>Copy, modify, or create derivative works of the App</li>
-                <li>Remove any proprietary notices or labels from the App</li>
-                <li>Use the App for commercial purposes without our written permission</li>
-                <li>License, sell, rent, lease, transfer, or distribute the App</li>
+                <li>Copy, modify, adapt, translate, or create derivative works based on BinRo</li>
+                <li>Reverse engineer, decompile, disassemble, or attempt to extract the source code of the App</li>
+                <li>Remove, obscure, or alter any proprietary notices, trademarks, or copyright labels</li>
+                <li>Use BinRo's name, logo, or branding without our prior written permission</li>
+                <li>License, sell, rent, lease, transfer, or distribute the App or any rights to use it</li>
+                <li>Use BinRo for any commercial purpose without our prior written consent</li>
             </ul>
-            
-            <h2>10. Modifications to Service</h2>
-            <p>We reserve the right to modify, suspend, or discontinue BinRo (or any part thereof) at any time, with or without notice. We shall not be liable to you or any third party for any modification, suspension, or discontinuance of the App.</p>
-            
-            <h2>11. Termination</h2>
-            <p>We may terminate or suspend your access to BinRo immediately, without prior notice or liability, for any reason, including if you breach these Terms. Upon termination, your right to use the App will cease immediately.</p>
-            
-            <h2>12. Governing Law and Dispute Resolution</h2>
-            
-            <h3>12.1 Governing Law</h3>
-            <p>These Terms shall be governed by and construed in accordance with the laws of India, without regard to its conflict of law provisions.</p>
-            
-            <h3>12.2 Jurisdiction</h3>
-            <p>Any disputes arising out of or relating to these Terms or your use of BinRo shall be subject to the exclusive jurisdiction of the courts located in Kerala, India.</p>
-            
-            <h3>12.3 Arbitration (Optional)</h3>
-            <p>For disputes under INR 10,00,000 (Ten Lakh Rupees), you agree to first attempt good-faith negotiation. If unresolved within 30 days, either party may initiate binding arbitration in Kerala, India under the Arbitration and Conciliation Act, 1996.</p>
-            
-            <h2>13. Changes to Terms</h2>
-            <p>We reserve the right to modify these Terms at any time. We will notify users of material changes via:</p>
+
+            <h3>13.4 Feedback</h3>
+            <p>If you submit ideas, suggestions, or feedback about BinRo, you grant us the right to use that feedback freely without any obligation, compensation, or attribution to you.</p>
+
+            <!-- 14 -->
+            <h2 id="s14">14. Third-Party Services</h2>
+            <p>BinRo integrates with and relies on third-party services to function. Your use of BinRo may involve interacting with these services:</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr><th>Service</th><th>Provider</th><th>Your Relationship</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Firebase (Auth, Firestore, Storage, FCM)</td>
+                        <td>Google LLC</td>
+                        <td>Governed by <a href="https://firebase.google.com/terms" target="_blank" rel="noopener" style="color:#3B82F6;">Firebase Terms</a></td>
+                    </tr>
+                    <tr>
+                        <td>Google Safe Browsing API</td>
+                        <td>Google LLC</td>
+                        <td>Used for URL threat checking</td>
+                    </tr>
+                    <tr>
+                        <td>Google Play Billing</td>
+                        <td>Google LLC</td>
+                        <td>Governed by <a href="https://play.google.com/about/play-terms/" target="_blank" rel="noopener" style="color:#3B82F6;">Google Play Terms</a></td>
+                    </tr>
+                    <tr>
+                        <td>Apple In-App Purchase</td>
+                        <td>Apple Inc.</td>
+                        <td>Governed by <a href="https://www.apple.com/legal/internet-services/itunes/us/terms.html" target="_blank" rel="noopener" style="color:#3B82F6;">App Store Terms</a></td>
+                    </tr>
+                    <tr>
+                        <td>Razorpay</td>
+                        <td>Razorpay Software Pvt. Ltd.</td>
+                        <td>Governed by <a href="https://razorpay.com/terms/" target="_blank" rel="noopener" style="color:#3B82F6;">Razorpay Terms</a></td>
+                    </tr>
+                    <tr>
+                        <td>OpenAI API</td>
+                        <td>OpenAI, L.L.C.</td>
+                        <td>Used for AI-assisted QR analysis</td>
+                    </tr>
+                    <tr>
+                        <td>Expo Push Notifications</td>
+                        <td>Expo / Shopify Inc.</td>
+                        <td>Used for push notification delivery</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>We are not responsible for the content, privacy practices, availability, or conduct of any third-party service. Links to third-party services are provided for convenience only and do not constitute an endorsement. Your use of any third-party service is at your own risk and subject to that provider's own terms and privacy policy.</p>
+
+            <!-- 15 -->
+            <h2 id="s15">15. Modifications to Service</h2>
+            <p>We reserve the right to modify, update, suspend, or permanently discontinue any part of BinRo — including features, pricing, availability, and third-party integrations — at any time, with or without notice to you.</p>
+            <p>We will make reasonable efforts to notify users in advance of material changes (such as removal of a core feature or significant pricing changes) via in-app notification or email. However, we are not obligated to do so for routine updates, maintenance, or minor changes.</p>
+            <p>We shall not be liable to you or any third party for any modification, suspension, or discontinuance of any feature or the entire Service.</p>
+
+            <!-- 16 -->
+            <h2 id="s16">16. Suspension &amp; Termination</h2>
+
+            <h3>16.1 Termination by Us</h3>
+            <p>We may suspend or permanently terminate your access to BinRo immediately and without prior notice if we determine, in our sole discretion, that you have:</p>
             <ul>
-                <li>In-app notification with a summary of changes</li>
-                <li>Email notification (if you have provided an email address)</li>
-                <li>Prominent posting on our website with the updated Terms</li>
+                <li>Violated any provision of these Terms</li>
+                <li>Engaged in fraudulent, abusive, or harmful conduct</li>
+                <li>Submitted false or malicious community reports</li>
+                <li>Created multiple accounts to circumvent a ban</li>
+                <li>Attempted to compromise the security or integrity of BinRo's systems</li>
+                <li>Violated any applicable law or regulation</li>
             </ul>
-            <p>Your continued use of BinRo after the effective date of changes constitutes your acceptance of the new Terms. If you do not agree to the changes, you must stop using the App.</p>
-            
-            <h2>14. Severability</h2>
-            <p>If any provision of these Terms is found to be invalid, illegal, or unenforceable by a court of competent jurisdiction, that provision shall be severed, and the remaining provisions shall remain in full force and effect.</p>
-            
-            <h2>15. Entire Agreement</h2>
-            <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and BinRo regarding your use of the App and supersede all prior or contemporaneous agreements, representations, or understandings.</p>
-            
-            <h2>16. Contact Information</h2>
-            <p>For questions about these Terms, please contact us:</p>
+
+            <h3>16.2 Termination by You</h3>
+            <p>You may stop using BinRo at any time and delete your account via Account Settings → Delete Account, or by contacting us at <a href="mailto:ahmedsameerbinan2@gmail.com" style="color:#3B82F6;">ahmedsameerbinan2@gmail.com</a>. Deletion procedures are described in our Privacy Policy.</p>
+
+            <h3>16.3 Effect of Termination</h3>
+            <p>Upon termination of your account (by either party):</p>
             <ul>
-                <li><strong>Email:</strong> ahmedsameerbinan2@gmail.com</li>
-                <li><strong>Website:</strong> <a href="https://binan-maker.github.io/QRS">https://binan-maker.github.io/QRS</a></li>
-                <li><strong>Address:</strong> Kerala, India</li>
+                <li>Your license to use BinRo ceases immediately</li>
+                <li>Your access to account features, saved QR codes, and in-app purchase benefits is revoked</li>
+                <li>Provisions of these Terms that by their nature should survive termination — including Sections 7, 9, 10, 11, 12, 13, and 17 — shall continue to apply</li>
             </ul>
-            
-            <h2>17. Acknowledgment</h2>
-            <p>BY DOWNLOADING, ACCESSING, OR USING BinRo, YOU ACKNOWLEDGE THAT:</p>
-            <ol>
-                <li>You have read these Terms</li>
-                <li>You understand these Terms</li>
-                <li>You agree to be bound by these Terms</li>
-                <li>You accept all risks associated with using BinRo, including the risk of financial loss from QR code scams</li>
-            </ol>
-            
+            <p>Termination does not entitle you to a refund of any in-app purchases already made. Refund requests must be directed to the applicable app store as described in <a href="#s8" style="color:#3B82F6;">Section 8.5</a>.</p>
+
+            <!-- 17 -->
+            <h2 id="s17">17. Governing Law &amp; Dispute Resolution</h2>
+
+            <h3>17.1 Governing Law</h3>
+            <p>These Terms and any dispute or claim arising out of or in connection with them (including non-contractual disputes or claims) shall be governed by and construed in accordance with the <strong>laws of India</strong>, without regard to its conflict of law provisions.</p>
+
+            <h3>17.2 Jurisdiction</h3>
+            <p>Subject to Section 17.3, any disputes arising out of or relating to these Terms or your use of BinRo shall be subject to the <strong>exclusive jurisdiction of the courts located in Kerala, India</strong>. You consent to personal jurisdiction in those courts and waive any objection to such jurisdiction or venue.</p>
+
+            <h3>17.3 Informal Resolution First</h3>
+            <p>Before initiating any formal legal proceeding, you agree to first contact us at <a href="mailto:ahmedsameerbinan2@gmail.com" style="color:#3B82F6;">ahmedsameerbinan2@gmail.com</a> and attempt to resolve the dispute through good-faith negotiation. We will respond within 10 business days. If the dispute is not resolved within 30 days of your initial notice, either party may proceed to formal dispute resolution.</p>
+
+            <h3>17.4 Arbitration</h3>
+            <p>For disputes where the total claim value is under <strong>INR 10,00,000 (Ten Lakh Rupees)</strong>, and where informal resolution has failed, either party may elect to resolve the dispute through binding arbitration conducted in Kerala, India, under the <strong>Arbitration and Conciliation Act, 1996</strong>. The arbitration shall be conducted in English. The arbitrator's decision shall be final and binding on both parties.</p>
+
+            <h3>17.5 No Class Actions</h3>
+            <p>To the extent permitted by applicable law, you agree to resolve any dispute with BinRo on an individual basis only and not as part of any class, collective, or representative action.</p>
+
+            <!-- 18 -->
+            <h2 id="s18">18. Changes to These Terms</h2>
+            <p>We reserve the right to update or modify these Terms at any time. When we make material changes, we will:</p>
+            <ul>
+                <li>Update the <strong>Effective Date</strong> at the top of this page</li>
+                <li>Increment the consent version in the App — all users will be required to review and re-accept before continuing use</li>
+                <li>Where practically possible, notify you via in-app notification and/or email prior to the changes taking effect</li>
+            </ul>
+            <p>Your continued use of BinRo after the revised Terms take effect constitutes your acceptance of the updated Terms. If you do not agree to the revised Terms, you must stop using BinRo and may request deletion of your account.</p>
+            <p>We recommend reviewing these Terms periodically. The Effective Date at the top of this page indicates the most recent revision.</p>
+
+            <!-- 19 -->
+            <h2 id="s19">19. Miscellaneous</h2>
+
+            <h3>19.1 Entire Agreement</h3>
+            <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and BinRo concerning the Services and supersede all prior or contemporaneous agreements, representations, warranties, and understandings between you and us.</p>
+
+            <h3>19.2 Severability</h3>
+            <p>If any provision of these Terms is found by a court of competent jurisdiction to be invalid, illegal, or unenforceable, that provision shall be limited or severed to the minimum extent necessary, and the remaining provisions shall remain in full force and effect.</p>
+
+            <h3>19.3 No Waiver</h3>
+            <p>Our failure to enforce any right or provision of these Terms shall not constitute a waiver of that right or provision. A waiver of any breach shall not be construed as a waiver of any subsequent breach.</p>
+
+            <h3>19.4 Assignment</h3>
+            <p>You may not assign or transfer your rights or obligations under these Terms without our prior written consent. We may assign our rights and obligations under these Terms at any time, including in connection with a merger, acquisition, or sale of assets, without notice to you.</p>
+
+            <h3>19.5 Force Majeure</h3>
+            <p>We shall not be liable for any delay or failure to perform our obligations under these Terms to the extent caused by circumstances beyond our reasonable control, including but not limited to acts of God, natural disasters, war, government action, internet outages, or third-party service failures.</p>
+
+            <h3>19.6 Language</h3>
+            <p>These Terms are written in English. In the event of any conflict between an English version and a translated version, the English version shall prevail.</p>
+
+            <!-- 20 -->
+            <h2 id="s20">20. Contact Us</h2>
+            <p>For any questions, concerns, or notices regarding these Terms of Service, please contact us:</p>
+            <div class="contact-card">
+                <p><strong>📧 Email:</strong> <a href="mailto:ahmedsameerbinan2@gmail.com">ahmedsameerbinan2@gmail.com</a></p>
+                <p><strong>🌐 Website:</strong> <a href="https://binan-maker.github.io/qrguard" target="_blank" rel="noopener">https://binan-maker.github.io/qrguard</a></p>
+                <p><strong>📍 Address:</strong> Kerala, India</p>
+                <p style="margin-top:0.75rem; color:#6b7280; font-size:0.95rem;">We aim to respond to all Terms-related enquiries within <strong>5 business days</strong>.</p>
+            </div>
+
+            <div class="callout info" style="margin-top:2.5rem;">
+                <span class="callout-icon">📋</span>
+                <p><strong>Acknowledgment:</strong> By downloading, accessing, or using BinRo, you confirm that you have read, understood, and agree to be bound by these Terms of Service — including the limitation of liability in Section 11 and the QR verification responsibility in Section 9.</p>
+            </div>
+
             <a href="index.html" class="back-link">← Back to Home</a>
+
         </div>
     </div>
+
 </body>
 </html>
