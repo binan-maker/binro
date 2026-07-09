@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="QR Guard - Premium QR Security for India's Digital Economy">
+    <meta name="description" content="BinRo — Real-time QR code fraud detection for India's UPI and digital payment ecosystem.">
     <meta name="theme-color" content="#0a0a12">
-    <title>QR Guard | Next-Gen QR Security</title>
+    <title>BinRo | Scan Smart. Pay Safe.</title>
     
     <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +17,7 @@
 
     <style>
         /* ========================================
-           DESIGN SYSTEM - $90K TIER
+           DESIGN SYSTEM
            ======================================== */
         :root {
             /* Palette */
@@ -91,21 +91,14 @@
         }
 
         /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-deep);
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-deep); }
         ::-webkit-scrollbar-thumb {
             background: linear-gradient(180deg, var(--accent-cyan), var(--accent-purple));
             border-radius: 4px;
         }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent-cyan);
-        }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-cyan); }
 
-        /* Selection Color */
         ::selection {
             background: rgba(0, 240, 255, 0.3);
             color: #fff;
@@ -119,7 +112,7 @@
         }
 
         /* ========================================
-           GUARANTEED LOADER - PREMIUM ANIMATION
+           LOADER
            ======================================== */
         .loader {
             position: fixed;
@@ -170,8 +163,7 @@
         .loader-bar::after {
             content: '';
             position: absolute;
-            left: 0;
-            top: 0;
+            left: 0; top: 0;
             height: 100%;
             width: 0%;
             background: var(--accent-gradient);
@@ -193,12 +185,11 @@
         }
 
         /* ========================================
-           NAVIGATION - GLASSMORPHISM + SCROLL
+           NAVIGATION
            ======================================== */
         .nav {
             position: fixed;
-            top: 0;
-            left: 0;
+            top: 0; left: 0;
             width: 100%;
             padding: 1.5rem 5%;
             display: flex;
@@ -261,21 +252,15 @@
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
+            bottom: 0; left: 0;
             width: 0;
             height: 2px;
             background: var(--accent-cyan);
             transition: width 0.3s var(--ease-out-expo);
         }
 
-        .nav-links a:hover {
-            color: var(--accent-cyan);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+        .nav-links a:hover { color: var(--accent-cyan); }
+        .nav-links a:hover::after { width: 100%; }
 
         .nav-cta {
             background: var(--accent-gradient);
@@ -287,8 +272,6 @@
             font-size: var(--text-sm);
             transition: all 0.3s var(--ease-out-expo);
             box-shadow: 0 4px 20px rgba(0, 240, 255, 0.3);
-            position: relative;
-            overflow: hidden;
         }
 
         .nav-cta:hover {
@@ -297,7 +280,7 @@
         }
 
         /* ========================================
-           HERO SECTION - ASYMMETRIC LAYOUT
+           HERO SECTION
            ======================================== */
         .hero {
             min-height: 100vh;
@@ -309,7 +292,6 @@
             overflow: hidden;
         }
 
-        /* Animated Gradient Background */
         .hero::before {
             content: '';
             position: absolute;
@@ -424,7 +406,7 @@
             transform: translateY(-3px);
         }
 
-        /* 3D Phone Mockup - CSS Only */
+        /* 3D Phone Mockup */
         .hero-visual {
             position: relative;
             display: flex;
@@ -503,8 +485,7 @@
         .qr-box::after {
             content: '';
             position: absolute;
-            top: 50%;
-            left: 50%;
+            top: 50%; left: 50%;
             transform: translate(-50%, -50%);
             width: 45%;
             height: 45%;
@@ -515,8 +496,7 @@
 
         .scan-line {
             position: absolute;
-            top: 0;
-            left: 0;
+            top: 0; left: 0;
             width: 100%;
             height: 2px;
             background: var(--accent-green);
@@ -546,7 +526,7 @@
         }
 
         /* ========================================
-           TRUST MARQUEE - LOGOS/STATS
+           TRUST MARQUEE
            ======================================== */
         .trust {
             padding: 4rem 0;
@@ -563,9 +543,7 @@
             width: max-content;
         }
 
-        .marquee:hover {
-            animation-play-state: paused;
-        }
+        .marquee:hover { animation-play-state: paused; }
 
         @keyframes scroll {
             0% { transform: translateX(0); }
@@ -582,10 +560,7 @@
             white-space: nowrap;
         }
 
-        .trust-item i {
-            color: var(--accent-cyan);
-            font-size: 1.25rem;
-        }
+        .trust-item i { color: var(--accent-cyan); font-size: 1.25rem; }
 
         /* ========================================
            BENTO GRID FEATURES
@@ -653,9 +628,7 @@
             pointer-events: none;
         }
 
-        .bento-card:hover::before {
-            opacity: 1;
-        }
+        .bento-card:hover::before { opacity: 1; }
 
         .bento-card:hover {
             border-color: var(--border-hover);
@@ -663,9 +636,7 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
-        .bento-card.large {
-            grid-column: span 2;
-        }
+        .bento-card.large { grid-column: span 2; }
 
         .bento-icon {
             width: 50px;
@@ -692,14 +663,14 @@
         }
 
         /* ========================================
-           STATS SECTION - ANIMATED COUNTERS
+           CAPABILITIES SECTION (replaces fake stats)
            ======================================== */
-        .stats {
+        .capabilities {
             padding: var(--space-2xl) 5%;
             background: linear-gradient(180deg, transparent, rgba(0, 240, 255, 0.02));
         }
 
-        .stats-grid {
+        .capabilities-grid {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
@@ -707,12 +678,28 @@
             gap: 2rem;
         }
 
-        .stat-item {
+        .cap-item {
             text-align: center;
             padding: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            transition: all 0.3s var(--ease-out-expo);
         }
 
-        .stat-number {
+        .cap-item:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+        }
+
+        .cap-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-cyan);
+            display: block;
+        }
+
+        .cap-value {
             font-size: var(--text-2xl);
             font-weight: 800;
             background: var(--accent-gradient);
@@ -723,7 +710,7 @@
             font-family: 'Space Grotesk', sans-serif;
         }
 
-        .stat-label {
+        .cap-label {
             color: rgba(255, 255, 255, 0.6);
             font-size: var(--text-sm);
             font-weight: 500;
@@ -751,10 +738,8 @@
         .cta-box::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
             background: radial-gradient(circle, rgba(0, 240, 255, 0.1) 0%, transparent 60%);
             animation: ctaGlow 8s ease-in-out infinite alternate;
         }
@@ -764,10 +749,7 @@
             100% { transform: translate(10%, 10%); }
         }
 
-        .cta-content {
-            position: relative;
-            z-index: 1;
-        }
+        .cta-content { position: relative; z-index: 1; }
 
         .cta h2 {
             font-size: var(--text-2xl);
@@ -807,9 +789,7 @@
             transition: color 0.3s;
         }
 
-        .footer-links a:hover {
-            color: var(--accent-cyan);
-        }
+        .footer-links a:hover { color: var(--accent-cyan); }
 
         .footer-bottom {
             color: rgba(255, 255, 255, 0.4);
@@ -847,72 +827,48 @@
                 gap: 4rem;
             }
 
-            .hero p {
-                margin: 0 auto 2.5rem;
-            }
+            .hero p { margin: 0 auto 2.5rem; }
 
-            .hero-buttons {
-                justify-content: center;
-            }
+            .hero-buttons { justify-content: center; }
 
-            .hero-visual {
-                order: -1;
-            }
+            .hero-visual { order: -1; }
 
-            .bento-grid {
-                grid-template-columns: 1fr;
-            }
+            .bento-grid { grid-template-columns: 1fr; }
 
-            .bento-card.large {
-                grid-column: span 1;
-            }
+            .bento-card.large { grid-column: span 1; }
 
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .capabilities-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
+            .nav-links { display: none; }
 
-            .hero {
-                padding: 10rem 5% 5rem;
-            }
+            .hero { padding: 10rem 5% 5rem; }
 
-            .phone {
-                width: 240px;
-                height: 480px;
-            }
+            .phone { width: 240px; height: 480px; }
 
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
+            .capabilities-grid { grid-template-columns: 1fr; }
 
-            .cta-box {
-                padding: 3rem 1.5rem;
-            }
+            .cta-box { padding: 3rem 1.5rem; }
         }
 
-        /* Reduced Motion Preference */
+        /* Reduced Motion */
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
             }
-            .marquee {
-                animation: none;
-            }
+            .marquee { animation: none; }
         }
     </style>
 </head>
 <body>
-    <!-- GUARANTEED LOADER -->
+
+    <!-- LOADER -->
     <div class="loader" id="loader">
         <div class="loader-logo">🛡️</div>
-        <div class="loader-text">Initializing</div>
+        <div class="loader-text">BinRo</div>
         <div class="loader-bar"></div>
     </div>
 
@@ -920,14 +876,14 @@
     <nav class="nav" id="nav">
         <div class="logo">
             <div class="logo-icon">🛡️</div>
-            <span>QR Guard</span>
+            <span>BinRo</span>
         </div>
         <ul class="nav-links">
             <li><a href="#features">Features</a></li>
             <li><a href="privacy.html">Privacy</a></li>
             <li><a href="terms.html">Terms</a></li>
         </ul>
-        <a href="https://play.google.com/store/apps/details?id=com.qrguard.app" class="nav-cta">Download</a>
+        <a href="#download" class="nav-cta">Download</a>
     </nav>
 
     <!-- Hero Section -->
@@ -936,12 +892,12 @@
             <div class="hero-text">
                 <div class="hero-badge">
                     <i class="fas fa-shield-alt"></i>
-                    <span>Enterprise-Grade Security</span>
+                    <span>Built for India's Digital Payments</span>
                 </div>
                 <h1>Scan Smarter.<br>Pay Safer.</h1>
-                <p>Protect yourself from QR scams with AI-powered threat detection and community intelligence. Built for India's digital payment revolution.</p>
+                <p>Protect yourself from QR scams with real-time threat detection and community intelligence. Built for India's UPI and BharatQR ecosystem.</p>
                 <div class="hero-buttons">
-                    <a href="https://play.google.com/store/apps/details?id=com.qrguard.app" class="btn btn-primary">
+                    <a href="#download" class="btn btn-primary">
                         <i class="fab fa-google-play"></i>
                         Get It Free
                     </a>
@@ -972,16 +928,21 @@
         <div class="marquee">
             <div class="trust-item"><i class="fas fa-check-circle"></i> DPDP Act 2023 Compliant</div>
             <div class="trust-item"><i class="fas fa-award"></i> KSUM Incubated</div>
-            <div class="trust-item"><i class="fas fa-lock"></i> End-to-End Encrypted</div>
-            <div class="trust-item"><i class="fas fa-bolt"></i> 0.8s Scan Speed</div>
-            <div class="trust-item"><i class="fas fa-users"></i> 50K+ Active Users</div>
-            <div class="trust-item"><i class="fas fa-shield-alt"></i> Zero Data Collection</div>
+            <div class="trust-item"><i class="fas fa-lock"></i> TLS Encrypted</div>
+            <div class="trust-item"><i class="fas fa-bolt"></i> Sub-second Scan Analysis</div>
+            <div class="trust-item"><i class="fas fa-mobile-alt"></i> Android &amp; iOS</div>
+            <div class="trust-item"><i class="fas fa-rupee-sign"></i> UPI &amp; BharatQR Support</div>
+            <div class="trust-item"><i class="fas fa-robot"></i> AI-Powered Detection</div>
+            <div class="trust-item"><i class="fas fa-map-marker-alt"></i> Made in Kerala, India</div>
+            <!-- duplicated for seamless loop -->
             <div class="trust-item"><i class="fas fa-check-circle"></i> DPDP Act 2023 Compliant</div>
             <div class="trust-item"><i class="fas fa-award"></i> KSUM Incubated</div>
-            <div class="trust-item"><i class="fas fa-lock"></i> End-to-End Encrypted</div>
-            <div class="trust-item"><i class="fas fa-bolt"></i> 0.8s Scan Speed</div>
-            <div class="trust-item"><i class="fas fa-users"></i> 50K+ Active Users</div>
-            <div class="trust-item"><i class="fas fa-shield-alt"></i> Zero Data Collection</div>
+            <div class="trust-item"><i class="fas fa-lock"></i> TLS Encrypted</div>
+            <div class="trust-item"><i class="fas fa-bolt"></i> Sub-second Scan Analysis</div>
+            <div class="trust-item"><i class="fas fa-mobile-alt"></i> Android &amp; iOS</div>
+            <div class="trust-item"><i class="fas fa-rupee-sign"></i> UPI &amp; BharatQR Support</div>
+            <div class="trust-item"><i class="fas fa-robot"></i> AI-Powered Detection</div>
+            <div class="trust-item"><i class="fas fa-map-marker-alt"></i> Made in Kerala, India</div>
         </div>
     </section>
 
@@ -996,55 +957,59 @@
             <div class="bento-card large">
                 <div class="bento-icon"><i class="fas fa-brain"></i></div>
                 <h3>AI-Powered Threat Detection</h3>
-                <p>Machine learning models analyze 50+ threat vectors in real-time. Continuously evolving neural network adapts to new attack patterns before they spread.</p>
+                <p>BinRo's threat engine checks every QR code against our fraud intelligence database, community reports, and Google Safe Browsing — catching phishing links and fake merchant QR codes before they catch you.</p>
             </div>
             <div class="bento-card">
                 <div class="bento-icon"><i class="fas fa-bolt"></i></div>
                 <h3>Lightning Fast</h3>
-                <p>Scan and verify in under 0.8 seconds. Offline-first architecture ensures instant results anywhere, even on 2G networks.</p>
+                <p>Scan and analyse in under a second. On-device QR decoding keeps results instant — no waiting, even on slower networks.</p>
             </div>
             <div class="bento-card">
                 <div class="bento-icon"><i class="fas fa-users"></i></div>
-                <h3>Community Intelligence</h3>
-                <p>Leverage the collective wisdom of 50,000+ users. Weighted trust scoring with Byzantine fault tolerance prevents manipulation.</p>
+                <h3>Community Trust Scores</h3>
+                <p>Every QR code gets a trust score powered by real BinRo users. When the community flags a scam, the warning reaches every user instantly.</p>
             </div>
             <div class="bento-card large">
                 <div class="bento-icon"><i class="fas fa-lock"></i></div>
-                <h3>Privacy by Design</h3>
-                <p>Your scan history stays on your device. Zero tracking, zero ads, zero data sales. Fully compliant with India's DPDP Act 2023 and global privacy standards.</p>
+                <h3>Your Privacy, Our Priority</h3>
+                <p>Camera frames are processed locally on your device — nothing is uploaded unless you choose to. All data is encrypted in transit with TLS. Fully compliant with India's DPDP Act 2023.</p>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="stats-grid">
-            <div class="stat-item">
-                <div class="stat-number" data-target="20">0</div>
-                <div class="stat-label">Active Users</div>
+    <!-- Capabilities Section -->
+    <section class="capabilities">
+        <div class="capabilities-grid">
+            <div class="cap-item">
+                <span class="cap-icon"><i class="fas fa-rupee-sign"></i></span>
+                <div class="cap-value">80+</div>
+                <div class="cap-label">Payment Apps Supported</div>
             </div>
-            <div class="stat-item">
-                <div class="stat-number" data-target="12000">0</div>
-                <div class="stat-label">Scams Blocked</div>
+            <div class="cap-item">
+                <span class="cap-icon"><i class="fas fa-bolt"></i></span>
+                <div class="cap-value">&lt; 1s</div>
+                <div class="cap-label">QR Scan Analysis Time</div>
             </div>
-            <div class="stat-item">
-                <div class="stat-number" data-target="20">0</div>
-                <div class="stat-label">Verified Merchants</div>
+            <div class="cap-item">
+                <span class="cap-icon"><i class="fas fa-mobile-alt"></i></span>
+                <div class="cap-value">2</div>
+                <div class="cap-label">Platforms — Android &amp; iOS</div>
             </div>
-            <div class="stat-item">
-                <div class="stat-number" data-target="0.8">0</div>
-                <div class="stat-label">Avg Scan Time (s)</div>
+            <div class="cap-item">
+                <span class="cap-icon"><i class="fas fa-shield-alt"></i></span>
+                <div class="cap-value">Free</div>
+                <div class="cap-label">Core Safety Features</div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="cta">
+    <section class="cta" id="download">
         <div class="cta-box">
             <div class="cta-content">
                 <h2>Ready to Scan with Confidence?</h2>
-                <p>Join thousands of Indians who protect their payments with QR Guard. Free forever. No ads. No tracking.</p>
-                <a href="https://play.google.com/store/apps/details?id=com.qrguard.app" class="btn btn-primary">
+                <p>Download BinRo and verify any payment QR code before you pay — free, fast, and built for India.</p>
+                <a href="#" class="btn btn-primary">
                     <i class="fab fa-google-play"></i>
                     Download on Google Play
                 </a>
@@ -1056,12 +1021,12 @@
     <footer class="footer">
         <div class="logo" style="justify-content: center; margin-bottom: 1rem;">
             <div class="logo-icon">🛡️</div>
-            <span>QR Guard</span>
+            <span>BinRo</span>
         </div>
         <div class="footer-links">
             <a href="privacy.html">Privacy Policy</a>
             <a href="terms.html">Terms of Service</a>
-            <a href="mailto:support@qrguard.app">Contact Support</a>
+            <a href="mailto:ahmedsameerbinan2@gmail.com">Contact</a>
         </div>
         <div class="badges">
             <div class="badge"><i class="fas fa-shield-alt"></i> DPDP Compliant</div>
@@ -1069,13 +1034,13 @@
             <div class="badge"><i class="fas fa-lock"></i> Secure by Default</div>
         </div>
         <div class="footer-bottom">
-            &copy; 2026 QR Guard. All rights reserved. Made with precision in India.
+            &copy; 2026 BinRo. All rights reserved. Made with precision in Kerala, India.
         </div>
     </footer>
 
     <script>
         /* ========================================
-           GUARANTEED LOADER HIDE - TRIPLE FALLBACK
+           LOADER HIDE
            ======================================== */
         function hideLoader() {
             const loader = document.getElementById('loader');
@@ -1090,14 +1055,13 @@
 
         window.addEventListener('load', () => setTimeout(hideLoader, 2000));
         document.addEventListener('DOMContentLoaded', () => setTimeout(hideLoader, 2500));
-        setTimeout(hideLoader, 4000); // Hard fallback
+        setTimeout(hideLoader, 4000);
 
         /* ========================================
-           APP INITIALIZATION & ANIMATIONS
+           APP INITIALIZATION
            ======================================== */
         function initApp() {
             initScrollAnimations();
-            initCounters();
             initMagneticButtons();
             initCardGlow();
             initParallax();
@@ -1116,51 +1080,11 @@
                 });
             }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-            document.querySelectorAll('.bento-card, .stat-item, .cta-box').forEach(el => {
+            document.querySelectorAll('.bento-card, .cap-item, .cta-box').forEach(el => {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(30px)';
                 el.style.transition = 'opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo)';
                 observer.observe(el);
-            });
-        }
-
-        // Animated Counters
-        function initCounters() {
-            const counters = document.querySelectorAll('.stat-number');
-            counters.forEach(counter => {
-                const target = parseFloat(counter.dataset.target);
-                const isDecimal = target < 1;
-                const duration = 2000;
-                const start = performance.now();
-
-                function update(currentTime) {
-                    const elapsed = currentTime - start;
-                    const progress = Math.min(elapsed / duration, 1);
-                    const eased = 1 - Math.pow(1 - progress, 3); // Ease out cubic
-                    
-                    const current = eased * target;
-                    
-                    if (isDecimal) {
-                        counter.textContent = current.toFixed(1) + 's';
-                    } else {
-                        counter.textContent = Math.floor(current).toLocaleString() + '+';
-                    }
-
-                    if (progress < 1) {
-                        requestAnimationFrame(update);
-                    } else {
-                        counter.textContent = isDecimal ? target + 's' : target.toLocaleString() + '+';
-                    }
-                }
-
-                const observer = new IntersectionObserver((entries) => {
-                    if (entries[0].isIntersecting) {
-                        requestAnimationFrame(update);
-                        observer.disconnect();
-                    }
-                }, { threshold: 0.5 });
-
-                observer.observe(counter);
             });
         }
 
@@ -1171,10 +1095,8 @@
                     const rect = btn.getBoundingClientRect();
                     const x = e.clientX - rect.left - rect.width / 2;
                     const y = e.clientY - rect.top - rect.height / 2;
-                    
                     btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
                 });
-
                 btn.addEventListener('mouseleave', () => {
                     btn.style.transform = '';
                 });
@@ -1198,7 +1120,6 @@
         function initParallax() {
             const phone = document.getElementById('phone');
             if (!phone || window.innerWidth <= 1024) return;
-
             document.addEventListener('mousemove', (e) => {
                 const xAxis = (window.innerWidth / 2 - e.pageX) / 40;
                 const yAxis = (window.innerHeight / 2 - e.pageY) / 40;
@@ -1210,18 +1131,11 @@
         function initNavScroll() {
             const nav = document.getElementById('nav');
             window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    nav.classList.add('scrolled');
-                } else {
-                    nav.classList.remove('scrolled');
-                }
+                nav.classList.toggle('scrolled', window.scrollY > 50);
             });
         }
 
-        // Console Signature
-        console.log('%c QR Guard ', 'background: linear-gradient(135deg, #00f0ff, #7000ff); color: white; padding: 8px 16px; border-radius: 4px; font-weight: bold;');
-        console.log('%c $90K Premium Homepage Loaded ', 'color: #00f0ff; font-weight: 600;');
-        console.log('%c Built with precision. Designed for impact. ', 'color: rgba(255,255,255,0.6);');
+        console.log('%c BinRo ', 'background: linear-gradient(135deg, #00f0ff, #7000ff); color: white; padding: 8px 16px; border-radius: 4px; font-weight: bold;');
     </script>
 </body>
 </html>
