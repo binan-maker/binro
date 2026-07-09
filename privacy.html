@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - BinRo</title>
+    <meta name="description" content="BinRo Privacy Policy — how we collect, use, protect, and share your data.">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -19,6 +20,9 @@
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         nav { display: flex; justify-content: space-between; align-items: center; }
         .logo {
@@ -27,6 +31,7 @@
             background: linear-gradient(135deg, #3B82F6 0%, #10B981 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         .nav-links a {
             text-decoration: none;
@@ -42,28 +47,167 @@
             border-radius: 12px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
         }
-        h1 { font-size: 2.5rem; margin-bottom: 1rem; color: #1f2937; }
-        .last-updated { color: #6b7280; margin-bottom: 2rem; font-style: italic; }
-        h2 { font-size: 1.75rem; margin: 2.5rem 0 1rem; color: #3B82F6; }
-        h3 { font-size: 1.25rem; margin: 1.5rem 0 0.75rem; color: #1f2937; }
+
+        /* Hero */
+        .policy-hero {
+            background: linear-gradient(135deg, #3B82F6 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            padding: 2.5rem 2rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+        .policy-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        .policy-hero .subtitle {
+            opacity: 0.9;
+            font-size: 1.1rem;
+            margin-bottom: 0;
+        }
+        .last-updated {
+            display: inline-block;
+            margin-top: 1rem;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            padding: 0.3rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Table of contents */
+        .toc {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2.5rem;
+        }
+        .toc h2 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #6b7280;
+            margin: 0 0 1rem;
+        }
+        .toc ol {
+            margin: 0;
+            padding-left: 1.2rem;
+            columns: 2;
+            column-gap: 2rem;
+        }
+        .toc li { margin-bottom: 0.35rem; }
+        .toc a {
+            text-decoration: none;
+            color: #3B82F6;
+            font-size: 0.95rem;
+        }
+        .toc a:hover { text-decoration: underline; }
+
+        /* Headings */
+        h2 {
+            font-size: 1.6rem;
+            margin: 3rem 0 1rem;
+            color: #3B82F6;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e0edff;
+            scroll-margin-top: 80px;
+        }
+        h3 {
+            font-size: 1.15rem;
+            margin: 1.75rem 0 0.6rem;
+            color: #1f2937;
+        }
         p { margin-bottom: 1rem; line-height: 1.8; }
-        ul { margin: 1rem 0 1rem 2rem; }
+        ul, ol { margin: 0.75rem 0 1rem 2rem; }
         li { margin-bottom: 0.5rem; line-height: 1.8; }
+
+        /* Callout boxes */
+        .callout {
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+        }
+        .callout-icon { font-size: 1.25rem; flex-shrink: 0; }
+        .callout.info { background: #eff6ff; border-left: 4px solid #3B82F6; }
+        .callout.warning { background: #fffbeb; border-left: 4px solid #f59e0b; }
+        .callout.success { background: #f0fdf4; border-left: 4px solid #10B981; }
+        .callout.danger { background: #fef2f2; border-left: 4px solid #ef4444; }
+        .callout p { margin: 0; }
+
+        /* Data table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0 1.5rem;
+            font-size: 0.95rem;
+        }
+        .data-table th {
+            background: #f1f5f9;
+            text-align: left;
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+            color: #374151;
+            border: 1px solid #e2e8f0;
+        }
+        .data-table td {
+            padding: 0.75rem 1rem;
+            border: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+        .data-table tr:nth-child(even) td { background: #f8fafc; }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 0.15rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .badge-blue { background: #dbeafe; color: #1d4ed8; }
+        .badge-green { background: #dcfce7; color: #15803d; }
+        .badge-red { background: #fee2e2; color: #b91c1c; }
+        .badge-purple { background: #ede9fe; color: #6d28d9; }
+
+        /* Contact card */
+        .contact-card {
+            background: linear-gradient(135deg, #f0f9ff 0%, #f5f3ff 100%);
+            border: 1px solid #c7d2fe;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+        .contact-card p { margin: 0.4rem 0; }
+        .contact-card a { color: #3B82F6; }
+
+        /* Back link */
         .back-link {
             display: inline-block;
-            margin-top: 2rem;
+            margin-top: 2.5rem;
             color: #3B82F6;
             text-decoration: none;
             font-weight: 500;
         }
         .back-link:hover { text-decoration: underline; }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .content { padding: 2rem 1.5rem; margin: 1rem; }
-            h1 { font-size: 2rem; }
+            .content { padding: 1.75rem 1.25rem; margin: 1rem; }
+            .policy-hero h1 { font-size: 1.85rem; }
+            .toc ol { columns: 1; }
+            .data-table { font-size: 0.85rem; }
+            .data-table th, .data-table td { padding: 0.5rem 0.65rem; }
+            .nav-links a { margin-left: 1rem; font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
+
     <header>
         <nav class="container">
             <div class="logo">🛡️ BinRo</div>
@@ -74,206 +218,621 @@
             </div>
         </nav>
     </header>
-    
+
     <div class="container">
         <div class="content">
-            <h1>Privacy Policy</h1>
-            <p class="last-updated">Effective Date: April 8, 2026</p>
-            
-            <h2>1. Who We Are</h2>
-            <p>BinRo is a beta-stage mobile application designed to help users scan, analyse, generate, and manage QR codes. We are a private software project operating under the laws of India. This policy applies to all users of BinRo on Android, iOS, and web platforms.</p>
-            <p><em>BinRo is in early access, so we're refining features and policies as we grow. If we ever make a meaningful change, we'll simply ask you to review and re-accept it.</em></p>
-            
-            <h2>2. Data We Collect</h2>
-            <p>By using BinRo, you agree we collect the following categories of information:</p>
-            
-            <h3>2.1 Account & Identity Data</h3>
+
+            <!-- Hero -->
+            <div class="policy-hero">
+                <h1>Privacy Policy</h1>
+                <p class="subtitle">We believe you have the right to know exactly how BinRo handles your data — in plain language.</p>
+                <span class="last-updated">Effective Date: July 9, 2026 &nbsp;|&nbsp; Version 2.0</span>
+            </div>
+
+            <!-- Table of Contents -->
+            <div class="toc">
+                <h2>Contents</h2>
+                <ol>
+                    <li><a href="#section1">Who We Are</a></li>
+                    <li><a href="#section2">Data We Collect</a></li>
+                    <li><a href="#section3">How We Use Your Data</a></li>
+                    <li><a href="#section4">Payments &amp; Transactions</a></li>
+                    <li><a href="#section5">QR Code &amp; UPI Data</a></li>
+                    <li><a href="#section6">Firebase &amp; Third-Party Services</a></li>
+                    <li><a href="#section7">Data Pattern Analysis</a></li>
+                    <li><a href="#section8">Data Sharing &amp; Disclosure</a></li>
+                    <li><a href="#section9">Data Retention</a></li>
+                    <li><a href="#section10">Data Security &amp; Breach Policy</a></li>
+                    <li><a href="#section11">Profile &amp; Privacy Controls</a></li>
+                    <li><a href="#section12">Your Rights</a></li>
+                    <li><a href="#section13">Cookies &amp; Tracking</a></li>
+                    <li><a href="#section14">Advertising</a></li>
+                    <li><a href="#section15">Government &amp; Law Enforcement</a></li>
+                    <li><a href="#section16">Children's Privacy</a></li>
+                    <li><a href="#section17">International Data Transfers</a></li>
+                    <li><a href="#section18">Changes to This Policy</a></li>
+                    <li><a href="#section19">Contact Us</a></li>
+                </ol>
+            </div>
+
+            <div class="callout info">
+                <span class="callout-icon">ℹ️</span>
+                <p><strong>Plain-language summary:</strong> BinRo is a QR code safety and payment-fraud detection app. We collect data to analyse QR codes for fraud, power community safety features, and keep your account secure. We do <strong>not</strong> sell your personal data. We do not store your card numbers or UPI credentials. In-app purchases on Android are processed by Google Play Billing; on iOS by Apple In-App Purchase. Optional website donations are processed by Razorpay. In all cases, BinRo never receives or stores your actual payment credentials.</p>
+            </div>
+
+            <!-- 1. Who We Are -->
+            <h2 id="section1">1. Who We Are</h2>
+            <p>BinRo is a mobile application (Android and iOS) and web platform designed to help users scan, analyse, generate, and manage QR codes with a focus on fraud prevention in the Indian digital payment ecosystem — including UPI, BharatQR, and 80+ payment apps.</p>
+            <p>BinRo is operated as a private software project under the laws of India, supported by the Kerala Startup Mission. Our registered contact address is Kerala, India.</p>
+            <p>This Privacy Policy applies to:</p>
             <ul>
-                <li>Email address, display name, profile photo (if uploaded)</li>
-                <li>Google account ID and authentication tokens (if using Google Sign-In)</li>
-                <li>Password hash (never stored in plaintext) for email accounts</li>
+                <li>The BinRo Android app (Google Play Store)</li>
+                <li>The BinRo iOS app (Apple App Store)</li>
+                <li>The BinRo website at <a href="https://binan-maker.github.io/qrguard" style="color:#3B82F6;">https://binan-maker.github.io/qrguard</a></li>
+                <li>All backend services, APIs, and infrastructure operated by BinRo</li>
             </ul>
-            
-            <h3>2.2 QR Code & Scan Data</h3>
+            <p>By using any BinRo service, you agree to the collection and use of information as described in this policy. If you do not agree, please discontinue use of BinRo immediately.</p>
+
+            <!-- 2. Data We Collect -->
+            <h2 id="section2">2. Data We Collect</h2>
+            <p>We collect only the data necessary to operate BinRo's services. Below is a complete breakdown of every category of data we collect, why we collect it, and the legal basis under India's <em>Digital Personal Data Protection Act, 2023 (DPDPA)</em>.</p>
+
+            <h3>2.1 Account &amp; Identity Data</h3>
             <ul>
-                <li>The content of QR codes you scan — such as links, contact info, Wi-Fi details, plain text, or payment info like a UPI ID and merchant name — so we can check it's safe</li>
-                <li>Timestamp, device platform, and app version at time of each scan</li>
-                <li>QR codes you generate, their destinations, and scan counts</li>
-                <li>Community reports, votes, and comments you submit on any QR code</li>
-            </ul>
-            
-            <h3>2.3 Usage & Behavioural Data</h3>
-            <ul>
-                <li>In-app navigation patterns, feature usage frequency, and session duration</li>
-                <li>Scan velocity data (how often a particular QR code is scanned across all users)</li>
-                <li>Search queries entered within the app</li>
-                <li>Friend connections, follows, and social interactions</li>
-            </ul>
-            
-            <h3>2.4 Device & Network Data</h3>
-            <ul>
-                <li>Device type, OS version, screen resolution, and app version</li>
-                <li>IP address and approximate geographic location derived from IP</li>
-                <li>Network type (Wi-Fi or mobile data)</li>
-                <li>Crash logs and error reports for debugging</li>
-            </ul>
-            
-            <h3>2.5 Camera & Media Data</h3>
-            <ul>
-                <li>Camera frames are processed locally on your device for QR detection. Images are NOT uploaded to our servers unless you explicitly upload a gallery image for scanning.</li>
+                <li>Email address and display name</li>
+                <li>Profile photo (only if you choose to upload one)</li>
+                <li>Google account ID and OAuth authentication tokens (if you use Google Sign-In)</li>
+                <li>Password hash — passwords are <strong>never stored in plaintext</strong>; we store only a one-way cryptographic hash (bcrypt)</li>
+                <li>Account creation timestamp and last login timestamp</li>
+                <li>Account type: standard user, verified merchant, or trust reviewer</li>
             </ul>
 
-            <h2>3. How We Use Your Data</h2>
-            <p>Your data is used for the following purposes. By using BinRo, you consent to all of these uses:</p>
-            
-            <h3>3.1 Core Service Delivery</h3>
+            <h3>2.2 QR Code &amp; Scan Data</h3>
             <ul>
-                <li>Authenticate your account, maintain sessions, and secure your profile</li>
-                <li>Perform QR code safety analysis using heuristics, blacklists, and community data</li>
-                <li>Sync scan history, favourites, and generated QR codes across your devices</li>
-                <li>Power community trust scores from aggregated, weighted user reports</li>
-                <li>Send in-app notifications about QR codes you follow or report activity</li>
-            </ul>
-            
-            <h3>3.2 Learning & Getting Smarter</h3>
-            <ul>
-                <li>Aggregated, anonymised scan data and safety reports help train and improve our threat detection models — so BinRo gets better at spotting scams for everyone.</li>
-                <li>URL and domain patterns from scanned QR codes contribute to our pattern-recognition database, helping us catch new threats early.</li>
-                <li>Community report patterns (which codes users flag as safe/scam/fake/spam) help improve how accurately we classify risk.</li>
-                <li>Your usage patterns are analysed to improve the app's experience and guide what we build next.</li>
-                <li>We may use anonymised scan data to build threat intelligence datasets. Your personal identity is never included.</li>
-            </ul>
-            
-            <h3>3.3 Advertising & Keeping BinRo Free</h3>
-            <ul>
-                <li>Aggregated, non-personally-identifiable usage patterns may be used to show relevant in-app ads, which help keep BinRo free.</li>
-                <li>Device type, approximate region, and general usage category may be shared with advertising partners to serve relevant ads.</li>
-                <li>We never share your name, email address, specific QR scan content, or payment data with advertisers.</li>
-                <li>You can opt out of personalised advertising anytime by contacting ahmedsameerbinan2@gmail.com. This won't remove all ads, just the personalised ones.</li>
-            </ul>
-            
-            <h3>3.4 Security, Legal & Compliance</h3>
-            <ul>
-                <li>Detect and prevent abuse, fraud, spam, and coordinated trust score manipulation</li>
-                <li>Comply with applicable Indian law, government orders, and court directives</li>
-                <li>Respond to law enforcement requests as required by applicable law</li>
+                <li>The decoded content of QR codes you scan — including URLs, contact info, Wi-Fi credentials, plain text, or payment data (such as a UPI ID, payee name, or merchant VPA)</li>
+                <li>Timestamp, device platform (Android/iOS), and app version at the time of each scan</li>
+                <li>Safety analysis result assigned to each scan (e.g., Safe, Suspicious, Dangerous)</li>
+                <li>QR codes you generate: their content, destination URLs, scan counts, and creation timestamps</li>
+                <li>Community reports, trust votes, and comments you submit on QR codes</li>
+                <li>QR codes you bookmark or add to favourites</li>
             </ul>
 
-            <h2>4. Data Pattern Analysis & Database Use</h2>
-            <p>BinRo maintains a continuously updated threat intelligence database derived from community scan data and reports. This database powers our real-time QR code safety analysis.</p>
+            <h3>2.3 Payment &amp; Transaction Data</h3>
+            <p>Please see <a href="#section4" style="color:#3B82F6;">Section 4 (Payments &amp; Transactions)</a> for the full breakdown. In summary:</p>
             <ul>
-                <li>Scan patterns across our entire user base are analysed to detect emerging fraud campaigns, phishing waves, and new malicious QR code formats.</li>
-                <li>Payment QR codes (UPI, BharatQR, etc.) are analysed in aggregate for unusual merchant patterns that may indicate fraud.</li>
-                <li>URL and domain patterns from scanned QR codes are added to our threat pattern database and may be shared with our threat intelligence partners in anonymised form.</li>
-                <li>Community report data is used to build statistical models that weight reporter credibility and detect coordinated abuse.</li>
-            </ul>
-            <p>All pattern analysis databases use anonymised and aggregated data. We do not build databases that link specific QR code content to individual users.</p>
-
-            <h2>5. Firebase & Third-Party Infrastructure</h2>
-            <p>BinRo uses Google Firebase for backend infrastructure. Your data is stored in Firebase Firestore, Firebase Realtime Database, and Firebase Auth. Firebase is compliant with GDPR, SOC 2, and ISO 27001.</p>
-            <p>We also use: Google Safe Browsing API (URL threat checking), Razorpay (web donation processing), and third-party analytics and crash reporting tools. These services have their own privacy policies which govern their use of data they receive.</p>
-            <p>We are not responsible for the data practices of these third-party providers. Links to their privacy policies are available on request.</p>
-
-            <h2>6. Data Retention</h2>
-            <ul>
-                <li>Account data is retained while your account is active.</li>
-                <li>Upon account deletion, personally identifiable data is removed from active databases within 30 days.</li>
-                <li>Anonymised, aggregated data (scan counts, threat patterns, trust scores) may be retained indefinitely as part of our threat intelligence database.</li>
-                <li>Backup copies may be retained for up to 90 days post-deletion for disaster recovery purposes.</li>
-                <li>Data submitted as community reports may persist in anonymised form even after account deletion.</li>
+                <li>We <strong>never</strong> collect or store card numbers, UPI IDs (yours), bank account numbers, CVVs, PINs, or Apple ID credentials.</li>
+                <li>Payments are handled entirely by Google Play Billing or the Apple App Store.</li>
+                <li>We receive only: transaction ID, product purchased, purchase timestamp, and a verification receipt/token.</li>
             </ul>
 
-            <h2>7. Data Sharing & Disclosure</h2>
-            <p>We may share data in the following circumstances:</p>
+            <h3>2.4 Usage &amp; Behavioural Data</h3>
             <ul>
-                <li>With Google Firebase as our primary infrastructure and authentication provider.</li>
-                <li>With advertising partners: aggregated, non-personally-identifiable usage data only.</li>
-                <li>With AI/ML partners: anonymised scan patterns and threat data for model improvement.</li>
-                <li>With threat intelligence sharing networks: anonymised URL/domain/QR threat patterns.</li>
-                <li>When required by law, court order, government directive, or to protect public safety.</li>
-                <li>In the event of acquisition or merger, under equivalent privacy protections.</li>
+                <li>In-app navigation patterns, features used, and session duration</li>
+                <li>Scan velocity data — how frequently a particular QR code is scanned across all BinRo users, used to detect coordinated fraud</li>
+                <li>Search queries you enter within BinRo</li>
+                <li>Friend connections, follows, and social interactions (who you follow, who follows you)</li>
+                <li>Notification interaction data (whether you opened or dismissed a push notification)</li>
             </ul>
-            <p><strong>We never sell your name, email address, phone number, specific QR scan content, payment data, or any directly personally identifiable information to third parties for commercial purposes.</strong></p>
 
-            <h2>8. Government & Law Enforcement Requests</h2>
-            <p>BinRo operates under Indian law. We comply with lawful government and law enforcement requests for user data, including those made under the Information Technology Act, 2000, the Digital Personal Data Protection Act, 2023, and applicable court orders.</p>
-            <p>Where legally permitted to do so, we will notify affected users of such requests. We review all government data requests for legal validity before complying.</p>
-            <p>We do not provide government agencies with backdoor access to our systems or databases. All data access requires valid legal process.</p>
+            <h3>2.5 Device &amp; Network Data</h3>
+            <ul>
+                <li>Device model, manufacturer, OS version, and screen resolution</li>
+                <li>App version and build number</li>
+                <li>IP address and approximate geographic location derived from IP (city/region level — we do not collect GPS location)</li>
+                <li>Network type (Wi-Fi or mobile data) and network carrier (where available)</li>
+                <li>Crash logs and error/exception reports for debugging purposes</li>
+                <li>Push notification token (Expo Push / Firebase Cloud Messaging) to deliver notifications to your device</li>
+            </ul>
 
-            <h2>9. Data Security & Breach Policy</h2>
-            <p>All data in transit between your device and our servers is encrypted using TLS 1.2+. Firebase Auth uses industry-standard OAuth 2.0 and secure token management. Data at rest is encrypted using AES-256 where Firebase infrastructure supports it.</p>
-            <p>We take security seriously and continuously monitor for issues. If something ever did affect your data, here's exactly what you can expect from us: we'll notify you by email or in-app message as soon as possible, inform relevant authorities as required by law, and act quickly to contain and resolve the issue.</p>
+            <h3>2.6 Camera &amp; Media Data</h3>
+            <div class="callout success">
+                <span class="callout-icon">✅</span>
+                <p><strong>Camera privacy:</strong> All camera frames are processed <strong>entirely on your device</strong> using on-device QR decoding. We do <strong>not</strong> upload your camera feed or individual frames to our servers. Images are only transmitted to our servers if you explicitly choose to upload a photo from your gallery to scan for a QR code.</p>
+            </div>
+            <ul>
+                <li>If you upload a gallery image for scanning: the image is transmitted securely (TLS), analysed, and then discarded. We do not store your personal images beyond the scan session.</li>
+                <li>Profile photos you upload are stored in Firebase Storage and linked to your account.</li>
+            </ul>
 
-            <h2>10. Profile Privacy Controls</h2>
+            <h3>2.7 Data You Submit Voluntarily</h3>
+            <ul>
+                <li>Feedback and bug reports you send us</li>
+                <li>Community report descriptions and evidence you submit</li>
+                <li>Merchant or business details if you register as a verified merchant</li>
+            </ul>
+
+            <!-- 3. How We Use Your Data -->
+            <h2 id="section3">3. How We Use Your Data</h2>
+            <p>We use your data for the following purposes. The legal basis for each use is noted in brackets, referencing India's <em>Digital Personal Data Protection Act, 2023</em>.</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Purpose</th>
+                        <th>Data Used</th>
+                        <th>Legal Basis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Authenticate your account and maintain secure sessions</td>
+                        <td>Account &amp; identity data, device data</td>
+                        <td><span class="badge badge-blue">Contract</span></td>
+                    </tr>
+                    <tr>
+                        <td>Analyse QR codes for safety and fraud in real time</td>
+                        <td>QR scan data, device data</td>
+                        <td><span class="badge badge-blue">Contract</span></td>
+                    </tr>
+                    <tr>
+                        <td>Sync scan history, favourites, and generated codes across devices</td>
+                        <td>QR scan data, account data</td>
+                        <td><span class="badge badge-blue">Contract</span></td>
+                    </tr>
+                    <tr>
+                        <td>Verify in-app purchases and unlock paid features</td>
+                        <td>Transaction ID, receipt token</td>
+                        <td><span class="badge badge-blue">Contract</span></td>
+                    </tr>
+                    <tr>
+                        <td>Send push notifications about QR safety alerts, friend activity, and app updates</td>
+                        <td>Push token, account data</td>
+                        <td><span class="badge badge-green">Consent</span></td>
+                    </tr>
+                    <tr>
+                        <td>Build and improve our fraud detection models using aggregated, anonymised patterns</td>
+                        <td>Anonymised scan &amp; behavioural data</td>
+                        <td><span class="badge badge-green">Consent</span></td>
+                    </tr>
+                    <tr>
+                        <td>Power community trust scores from aggregated user reports</td>
+                        <td>Community reports, scan velocity</td>
+                        <td><span class="badge badge-blue">Contract</span></td>
+                    </tr>
+                    <tr>
+                        <td>Show relevant in-app advertising to keep BinRo free</td>
+                        <td>Aggregated, non-PII usage data</td>
+                        <td><span class="badge badge-green">Consent</span></td>
+                    </tr>
+                    <tr>
+                        <td>Debug crashes and improve app stability</td>
+                        <td>Crash logs, device data</td>
+                        <td><span class="badge badge-purple">Legitimate interest</span></td>
+                    </tr>
+                    <tr>
+                        <td>Detect and prevent abuse, fraud, and spam</td>
+                        <td>Behavioural data, device data, IP</td>
+                        <td><span class="badge badge-purple">Legitimate interest</span></td>
+                    </tr>
+                    <tr>
+                        <td>Comply with Indian law and respond to lawful government requests</td>
+                        <td>Account data, scan data (as required)</td>
+                        <td><span class="badge badge-red">Legal obligation</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- 4. Payments & Transactions -->
+            <h2 id="section4">4. Payments &amp; Transactions</h2>
+            <p>BinRo offers optional in-app purchases (such as premium features or support contributions) processed exclusively through the official billing systems of your device's app store. Here is exactly how it works:</p>
+
+            <h3>4.1 How Payments Are Processed</h3>
+            <div class="callout success">
+                <span class="callout-icon">🔒</span>
+                <p><strong>BinRo never handles your payment credentials.</strong> We do not have access to your card number, CVV, expiry date, UPI ID, bank account number, net banking credentials, or Apple ID password. All payment processing is performed entirely by Google Play Billing (Android) and Apple In-App Purchase (iOS).</p>
+            </div>
+            <p><strong>On Android</strong>, purchases are processed by Google Play using your Google account's saved payment method. Google's <a href="https://payments.google.com/payments/apis-secure/get_legal_document?ldo=0&ldt=privacynotice&ldl=en" target="_blank" rel="noopener" style="color:#3B82F6;">Google Payments Privacy Notice</a> governs that transaction.</p>
+            <p><strong>On iOS</strong>, purchases are processed by Apple using your Apple ID's payment method. Apple's <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener" style="color:#3B82F6;">Apple Privacy Policy</a> governs that transaction.</p>
+
+            <h3>4.2 What BinRo Receives</h3>
+            <p>After a successful payment, the app store sends BinRo only the following limited information to verify your purchase:</p>
+            <ul>
+                <li><strong>Transaction ID</strong> — a unique identifier for the purchase (not linked to your payment method)</li>
+                <li><strong>Product ID</strong> — which feature or item you purchased</li>
+                <li><strong>Purchase timestamp</strong> — when the purchase was made</li>
+                <li><strong>Verification receipt or token</strong> — used only to confirm legitimacy of the purchase with Google/Apple servers</li>
+                <li><strong>Subscription status</strong> (where applicable) — whether a recurring subscription is active, expired, or cancelled</li>
+            </ul>
+            <p>This purchase information is linked to your BinRo account solely to activate the features you paid for. It is not used for advertising profiling or shared with third parties beyond what is necessary to verify the transaction.</p>
+
+            <h3>4.3 Razorpay (Website Donations)</h3>
+            <p>If you make a voluntary contribution via the BinRo website, payment is processed by <strong>Razorpay Software Private Limited</strong>, a PCI-DSS compliant payment gateway licensed by the Reserve Bank of India. Razorpay's <a href="https://razorpay.com/privacy/" target="_blank" rel="noopener" style="color:#3B82F6;">Privacy Policy</a> governs the data they process. BinRo receives only a transaction reference ID and the amount contributed — no card details or bank information.</p>
+
+            <h3>4.4 Refunds</h3>
+            <ul>
+                <li><strong>Android purchases:</strong> Contact <a href="https://support.google.com/googleplay/answer/2479637" target="_blank" rel="noopener" style="color:#3B82F6;">Google Play Support</a>. Refunds are governed by the <a href="https://support.google.com/googleplay/answer/2479637" target="_blank" rel="noopener" style="color:#3B82F6;">Google Play refund policy</a>.</li>
+                <li><strong>iOS purchases:</strong> Contact <a href="https://support.apple.com/en-in/HT204084" target="_blank" rel="noopener" style="color:#3B82F6;">Apple App Store Support</a>. Refunds are governed by Apple's refund policy.</li>
+                <li><strong>Website contributions via Razorpay:</strong> Email us at <a href="mailto:ahmedsameerbinan2@gmail.com" style="color:#3B82F6;">ahmedsameerbinan2@gmail.com</a> within 7 days of the transaction. Refunds are processed at our discretion and are not guaranteed for digital goods already delivered.</li>
+            </ul>
+
+            <h3>4.5 Financial Data We Do Not Collect</h3>
+            <div class="callout warning">
+                <span class="callout-icon">⚠️</span>
+                <p>BinRo <strong>never</strong> collects, stores, or transmits: credit/debit card numbers, UPI IDs or VPAs belonging to <em>you as a payer</em>, net banking credentials, bank account numbers, IFSC codes, CVV/CVC codes, ATM PINs, OTPs related to payments, or Apple ID / Google account passwords.</p>
+            </div>
+            <p>Note: When you <em>scan</em> a payment QR code, the payee's UPI ID or merchant VPA embedded in that QR code may be processed by our fraud-detection engine. This is limited to the payee's public merchant identifier — not your own payment credentials. See <a href="#section5" style="color:#3B82F6;">Section 5</a> for details.</p>
+
+            <!-- 5. QR Code & UPI Data -->
+            <h2 id="section5">5. QR Code &amp; UPI / Payment QR Data</h2>
+            <p>BinRo specialises in scanning and analysing payment QR codes, including UPI QR codes, BharatQR, and QR codes from 80+ Indian payment apps. Here is how we handle this sensitive data:</p>
+
+            <h3>5.1 What UPI / Payment QR Codes Contain</h3>
+            <p>A typical UPI QR code encodes publicly visible merchant information such as:</p>
+            <ul>
+                <li>Merchant / payee Virtual Payment Address (VPA), e.g., <em>merchant@upi</em></li>
+                <li>Merchant name or business name</li>
+                <li>Optional: requested amount and transaction note</li>
+                <li>Optional: BharatQR merchant category code (MCC)</li>
+            </ul>
+            <p>This information is <strong>publicly embedded</strong> in the QR code and is required for the payment to work. BinRo analyses this data to detect fraudulent or cloned merchant QR codes.</p>
+
+            <h3>5.2 How We Process Payment QR Data</h3>
+            <ul>
+                <li>The decoded content of payment QR codes you scan is transmitted to our servers over an encrypted TLS connection for safety analysis.</li>
+                <li>We check the merchant VPA and associated metadata against our fraud detection database, community reports, and threat intelligence feeds.</li>
+                <li>We do <strong>not</strong> initiate, authorise, or complete any UPI payment on your behalf. BinRo is a scanning and analysis tool only — it does not integrate with UPI payment rails or execute fund transfers.</li>
+                <li>Scanned payment QR content is stored in your scan history, linked to your account, for your personal reference.</li>
+                <li>Merchant VPAs and patterns from scanned QR codes are added to our anonymised threat intelligence database in aggregate. Your identity is not linked to this database.</li>
+            </ul>
+
+            <h3>5.3 BharatQR &amp; Multi-App Support</h3>
+            <p>BinRo parses QR code formats across 80+ Indian payment applications including PhonePe, Google Pay, Paytm, BHIM, Amazon Pay, and others. This parsing is performed on-device. The decoded content may be sent to our servers for safety analysis as described above.</p>
+
+            <div class="callout info">
+                <span class="callout-icon">ℹ️</span>
+                <p>BinRo is <strong>not</strong> a payment app. We do not hold, transfer, or process funds. We are a security verification tool. If you have payment-related issues, contact your payment provider directly.</p>
+            </div>
+
+            <!-- 6. Firebase & Third-Party Services -->
+            <h2 id="section6">6. Firebase &amp; Third-Party Services</h2>
+            <p>BinRo relies on the following third-party services to deliver its core functionality. Each service processes certain data and is governed by its own privacy policy:</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Provider</th>
+                        <th>Purpose</th>
+                        <th>Data Shared</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Firebase Authentication</strong></td>
+                        <td>Google LLC</td>
+                        <td>User account creation, login, session management</td>
+                        <td>Email, Google ID, auth tokens</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Firebase Firestore</strong></td>
+                        <td>Google LLC</td>
+                        <td>Primary database for scan history, QR data, user profiles, community reports</td>
+                        <td>Account data, scan data, community data</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Firebase Realtime Database</strong></td>
+                        <td>Google LLC</td>
+                        <td>Real-time features such as live scan counts and trust scores</td>
+                        <td>Anonymised aggregated scan/trust data</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Firebase Storage</strong></td>
+                        <td>Google LLC</td>
+                        <td>Profile photo storage and uploaded images for scanning</td>
+                        <td>Profile photos, uploaded scan images</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Firebase Cloud Messaging (FCM)</strong></td>
+                        <td>Google LLC</td>
+                        <td>Delivering push notifications to your device</td>
+                        <td>Push token, notification content</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Google Safe Browsing API</strong></td>
+                        <td>Google LLC</td>
+                        <td>Checking URLs decoded from QR codes against Google's threat intelligence database</td>
+                        <td>URLs extracted from scanned QR codes</td>
+                    </tr>
+                    <tr>
+                        <td><strong>OpenAI API</strong></td>
+                        <td>OpenAI, L.L.C.</td>
+                        <td>AI-powered QR code analysis and safety explanations</td>
+                        <td>QR code content (no personal identifiers)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Razorpay</strong></td>
+                        <td>Razorpay Software Pvt. Ltd.</td>
+                        <td>Website donation processing</td>
+                        <td>Transaction amount; payment credentials handled by Razorpay only</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Google Play Billing</strong></td>
+                        <td>Google LLC</td>
+                        <td>Android in-app purchase processing</td>
+                        <td>Transaction ID, product ID, receipt token</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Apple In-App Purchase</strong></td>
+                        <td>Apple Inc.</td>
+                        <td>iOS in-app purchase processing</td>
+                        <td>Transaction ID, product ID, receipt token</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Expo Push Notifications</strong></td>
+                        <td>Expo (by Shopify Inc.)</td>
+                        <td>Cross-platform push notification delivery</td>
+                        <td>Push token, notification payload</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Firebase (Google Cloud) is compliant with GDPR, SOC 2 Type II, ISO 27001, and ISO 27701. All Firebase data processing occurs under Google's <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener" style="color:#3B82F6;">Firebase Privacy and Security documentation</a>.</p>
+            <p>We are not responsible for the independent data practices of these third-party providers. We select providers that meet high security and compliance standards, but we encourage you to review their individual privacy policies.</p>
+
+            <!-- 7. Data Pattern Analysis -->
+            <h2 id="section7">7. Data Pattern Analysis &amp; Threat Intelligence</h2>
+            <p>BinRo maintains a continuously updated threat intelligence database derived from community scan data and reports. This database is the engine that powers our real-time QR code safety scores.</p>
+            <ul>
+                <li><strong>Scan pattern analysis:</strong> Aggregate scan patterns across all users are analysed to detect emerging fraud campaigns, phishing waves, and new malicious QR code formats. For example, if thousands of users scan the same fraudulent QR code in a short window, our system flags it as high-risk.</li>
+                <li><strong>Payment QR fraud detection:</strong> Payment QR codes (UPI, BharatQR) are analysed in aggregate for unusual merchant patterns, VPA registration anomalies, and known fraud signatures.</li>
+                <li><strong>URL &amp; domain database:</strong> URLs and domains decoded from scanned QR codes are added to our threat pattern database in anonymised form and may be shared with threat intelligence partners.</li>
+                <li><strong>Community report modelling:</strong> Report patterns are used to build statistical models that weight reporter credibility and detect coordinated abuse (such as attempts to falsely flag legitimate merchants).</li>
+                <li><strong>AI model training:</strong> Anonymised scan content and safety labels may be used to train and improve our machine learning threat detection models. Your personal identity is never included in any training dataset.</li>
+            </ul>
+            <div class="callout success">
+                <span class="callout-icon">✅</span>
+                <p>All pattern analysis uses <strong>anonymised and aggregated data only</strong>. We do not build databases that link specific QR code content to identifiable individuals.</p>
+            </div>
+
+            <!-- 8. Data Sharing & Disclosure -->
+            <h2 id="section8">8. Data Sharing &amp; Disclosure</h2>
+            <p>We may share your data only in the following circumstances:</p>
+
+            <h3>8.1 Service Providers</h3>
+            <p>We share data with the third-party services listed in <a href="#section6" style="color:#3B82F6;">Section 6</a> solely to deliver BinRo's functionality. These providers are contractually restricted from using your data for their own commercial purposes.</p>
+
+            <h3>8.2 Threat Intelligence Partners</h3>
+            <p>Anonymised URL, domain, and QR threat patterns (never linked to your identity) may be shared with threat intelligence networks to broaden fraud protection for the wider ecosystem.</p>
+
+            <h3>8.3 Advertising Partners</h3>
+            <p>Only aggregated, non-personally-identifiable usage data (such as general app category usage, device type, and approximate region) may be shared with advertising partners to serve relevant in-app ads. See <a href="#section14" style="color:#3B82F6;">Section 14</a> for your opt-out options.</p>
+
+            <h3>8.4 Legal &amp; Safety Disclosures</h3>
+            <p>We may disclose data when required by:</p>
+            <ul>
+                <li>A valid court order or judicial directive</li>
+                <li>A lawful government request under Indian law (including the IT Act 2000, DPDPA 2023, or applicable criminal procedure)</li>
+                <li>Prevention of imminent harm or safety threats to individuals or the public</li>
+            </ul>
+
+            <h3>8.5 Business Transfers</h3>
+            <p>In the event of a merger, acquisition, or sale of all or substantially all of our assets, your data may be transferred to the acquiring entity under equivalent privacy protections. You will be notified of any such transfer via email or in-app notice.</p>
+
+            <div class="callout danger">
+                <span class="callout-icon">🚫</span>
+                <p><strong>We never sell your personal data.</strong> We do not sell your name, email address, phone number, specific QR scan content, payment credentials, UPI information, or any directly personally identifiable information to any third party for commercial purposes — ever.</p>
+            </div>
+
+            <!-- 9. Data Retention -->
+            <h2 id="section9">9. Data Retention</h2>
+            <ul>
+                <li><strong>Active account data</strong> is retained for as long as your account is active and in use.</li>
+                <li><strong>Scan history</strong> is retained for up to 2 years. You can delete individual scan records from within the app at any time.</li>
+                <li><strong>Payment records</strong> (transaction IDs and receipts) are retained for 7 years to comply with Indian accounting and tax record-keeping requirements under the Income Tax Act, 1961.</li>
+                <li><strong>Account deletion:</strong> Upon requesting deletion, personally identifiable data is removed from active databases within <strong>30 days</strong>. See <a href="#section12" style="color:#3B82F6;">Section 12</a> for how to request deletion.</li>
+                <li><strong>Backup copies</strong> may be retained for up to 90 days post-deletion for disaster recovery purposes, after which they are permanently destroyed.</li>
+                <li><strong>Anonymised, aggregated data</strong> (scan counts, threat patterns, trust scores) may be retained indefinitely as part of our threat intelligence database. This data cannot be linked back to you.</li>
+                <li><strong>Community reports</strong> submitted by you may persist in anonymised form even after account deletion, as they form part of the shared safety database.</li>
+                <li><strong>Legal hold:</strong> If your account is subject to a government or legal investigation, we may be required to retain relevant data beyond the above timelines.</li>
+            </ul>
+
+            <!-- 10. Data Security & Breach -->
+            <h2 id="section10">10. Data Security &amp; Breach Policy</h2>
+
+            <h3>10.1 Security Measures</h3>
+            <ul>
+                <li><strong>In transit:</strong> All data between your device and our servers is encrypted using TLS 1.2 or higher. We enforce HTTPS-only connections.</li>
+                <li><strong>At rest:</strong> Data stored in Firebase Firestore and Firebase Storage is encrypted at rest using AES-256 by Google Cloud infrastructure.</li>
+                <li><strong>Authentication:</strong> Firebase Auth uses industry-standard OAuth 2.0, secure token management, and refresh token rotation.</li>
+                <li><strong>Passwords:</strong> Email account passwords are hashed using bcrypt with a unique salt. Plain-text passwords are never stored or logged anywhere in our systems.</li>
+                <li><strong>API security:</strong> Our backend APIs use authentication token validation, rate limiting, input sanitisation, and security headers on all endpoints.</li>
+                <li><strong>Access control:</strong> Internal access to production data is restricted on a strict need-to-know basis with audit logging.</li>
+            </ul>
+
+            <h3>10.2 Data Breach Response</h3>
+            <p>Despite our best efforts, no system is completely immune to security incidents. If a breach occurs that affects your personal data, here is what you can expect from us:</p>
+            <ul>
+                <li><strong>Notification:</strong> We will notify you by email and/or in-app message as soon as practicably possible — and within 72 hours of discovering the breach, in line with applicable data protection law.</li>
+                <li><strong>Regulatory reporting:</strong> We will report the breach to relevant authorities as required by the DPDPA 2023 and any other applicable law.</li>
+                <li><strong>Containment:</strong> We will immediately take steps to contain the breach, revoke compromised credentials, and secure affected systems.</li>
+                <li><strong>Transparency:</strong> We will provide a clear account of what data was affected, what steps we are taking, and what you should do to protect yourself.</li>
+            </ul>
+
+            <!-- 11. Profile & Privacy Controls -->
+            <h2 id="section11">11. Profile &amp; Privacy Controls</h2>
+
             <h3>Public Account (Default)</h3>
             <ul>
-                <li>Your profile, QR codes, stats, and activity are visible to all BinRo users worldwide.</li>
+                <li>Your profile, QR codes you have made public, activity stats, and community contributions are visible to all BinRo users.</li>
             </ul>
+
             <h3>Private Account</h3>
             <ul>
                 <li>Only approved friends can see your full profile, QR codes, and activity.</li>
-                <li>Other users see only your name, username, and profile photo.</li>
+                <li>Other users see only your display name, username, and profile photo.</li>
+                <li>You can switch between public and private at any time from Account Settings.</li>
             </ul>
+
             <h3>Friends System</h3>
             <ul>
-                <li>Friends are added via mutual consent. Both parties must agree.</li>
-                <li>You can remove a friend at any time. Removal immediately revokes profile access.</li>
+                <li>Friendships are formed only through mutual consent — both parties must accept.</li>
+                <li>You can remove a friend at any time. Removal immediately revokes their access to your private profile.</li>
+                <li>You can block any user, preventing them from seeing your profile or contacting you.</li>
             </ul>
 
-            <h2>11. Your Rights</h2>
-            <p>Under applicable Indian and international data protection law, you have the following rights:</p>
+            <h3>Scan History Visibility</h3>
             <ul>
-                <li><strong>Access</strong> — request a copy of all personal data we hold about you.</li>
-                <li><strong>Correction</strong> — update your name, email, or profile photo in-app or by contacting us.</li>
-                <li><strong>Deletion</strong> — permanently delete your account via Account Management. Personal data removed within 30 days.</li>
-                <li><strong>Portability</strong> — request your data in a machine-readable format.</li>
-                <li><strong>Withdraw consent</strong> for personalised advertising — email us at ahmedsameerbinan2@gmail.com.</li>
-                <li><strong>Lodge a complaint</strong> with the relevant data protection authority in your jurisdiction.</li>
-            </ul>
-            <p><em>Note: Some data rights may be limited where data has been anonymised and incorporated into community or AI datasets, as anonymised data cannot be attributed to a specific individual.</em></p>
-
-            <h2>12. Children's Privacy</h2>
-            <p>BinRo is not intended for users under 13 years of age. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal data without parental consent, contact us immediately at ahmedsameerbinan2@gmail.com and we will delete the data.</p>
-
-            <h2>13. Changes to This Policy</h2>
-            <p>We may update this Privacy Policy from time to time. When we make material changes, we will increment the consent version in the app, and all users will be required to re-accept before continuing to use BinRo. Continued use of the app after accepting the updated policy constitutes your agreement to the revised terms.</p>
-            <p>We recommend reviewing this policy periodically. The effective date at the top of this page reflects the most recent revision.</p>
-
-            <h2>14. Supporting BinRo & In-App Purchases</h2>
-            <p>If you'd like to support BinRo or access optional features, you can make transactions securely through the official billing systems of your device's app store (Google Play Store for Android and Apple App Store for iOS).</p>
-            
-            <h3>What We See</h3>
-            <ul>
-                <li>We never collect or store your card details, UPI ID, bank information, or Apple ID credentials — payment processing is handled entirely by Google Play's and Apple's secure billing systems.</li>
-                <li>From Google and Apple, we only receive the transaction ID, purchase receipt/token, product purchased, and timestamp.</li>
-                <li>Your purchase is linked to your Google Play or Apple ID account, and we only use the receipt to verify your purchase within BinRo.</li>
-            </ul>
-            
-            <h3>Where It Goes</h3>
-            <ul>
-                <li>Every contribution or purchase goes straight towards server costs, safety-check APIs, and keeping BinRo running and improving.</li>
-                <li>BinRo's core safety features remain completely free — optional contributions or purchases help sustain the project.</li>
-            </ul>
-            
-            <h3>Refunds</h3>
-            <ul>
-                <li>Since the app stores process the transactions, they also handle all refund requests.</li>
-                <li>For Android purchases, reach out to Google Play Support.</li>
-                <li>For iOS purchases, reach out to Apple App Store Support.</li>
-                <li>They will assist you directly according to their respective store policies.</li>
+                <li>Your personal scan history is private by default and visible only to you.</li>
+                <li>You can delete individual scans or your entire history from within the app.</li>
+                <li>Aggregated, anonymised data derived from your scans (e.g., contributing to a QR code's trust score) remains even after you delete your history.</li>
             </ul>
 
-            <h2>15. Contact Us</h2>
-            <p>For privacy questions, data access requests, or to exercise your rights, contact us:</p>
+            <h3>Push Notifications</h3>
             <ul>
-                <li><strong>Email:</strong> ahmedsameerbinan2@gmail.com</li>
-                <li><strong>Website:</strong> <a href="https://binan-maker.github.io/qrguard">https://binan-maker.github.io/qrguard</a></li>
-                <li><strong>Address:</strong> Kerala, India</li>
+                <li>You can manage push notification preferences from your device's notification settings or from within BinRo's app settings at any time.</li>
             </ul>
-            <p>We aim to respond to all privacy-related enquiries within 5 business days.</p>
-            
+
+            <!-- 12. Your Rights -->
+            <h2 id="section12">12. Your Rights</h2>
+            <p>Under India's <em>Digital Personal Data Protection Act, 2023 (DPDPA)</em> and applicable international frameworks, you have the following rights regarding your personal data:</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Right</th>
+                        <th>What It Means</th>
+                        <th>How to Exercise It</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Access</strong></td>
+                        <td>Request a full copy of all personal data we hold about you</td>
+                        <td>Email us at ahmedsameerbinan2@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Correction</strong></td>
+                        <td>Update your name, email, or profile photo</td>
+                        <td>Via Account Settings in the app, or by emailing us</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Erasure / Deletion</strong></td>
+                        <td>Permanently delete your account and personal data (within 30 days)</td>
+                        <td>Account Settings → Delete Account, or email us</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Portability</strong></td>
+                        <td>Receive your personal data in a structured, machine-readable format (JSON)</td>
+                        <td>Email us at ahmedsameerbinan2@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Withdraw Consent</strong></td>
+                        <td>Opt out of personalised advertising or AI training use of your data</td>
+                        <td>Email us at ahmedsameerbinan2@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Object / Restrict</strong></td>
+                        <td>Object to or restrict certain processing of your data</td>
+                        <td>Email us and we will assess your request</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lodge a Complaint</strong></td>
+                        <td>Complain to the Data Protection Board of India or your local data protection authority</td>
+                        <td>Via the Board's official channel once established under DPDPA 2023</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nominate</strong></td>
+                        <td>Nominate another person to exercise your data rights in the event of your death or incapacity</td>
+                        <td>Email us at ahmedsameerbinan2@gmail.com</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>We will respond to all verifiable rights requests within <strong>30 days</strong>. We may need to verify your identity before processing requests. We do not charge a fee for reasonable requests.</p>
+            <p><em>Note: Some rights are limited where data has been fully anonymised and incorporated into community or AI datasets — anonymised data cannot be attributed to a specific individual and is therefore outside the scope of data subject rights.</em></p>
+
+            <!-- 13. Cookies & Tracking -->
+            <h2 id="section13">13. Cookies &amp; Tracking Technologies</h2>
+
+            <h3>13.1 Mobile App</h3>
+            <p>The BinRo mobile app does not use browser cookies. Instead, we use:</p>
+            <ul>
+                <li><strong>Secure local storage</strong> (via Expo SecureStore) to persist your authentication token on your device. This data stays on your device and is not accessible to other apps.</li>
+                <li><strong>Firebase SDK analytics</strong> to collect anonymous usage data. You can opt out of Firebase Analytics via your device's advertising settings (Android: "Opt out of Ads Personalisation"; iOS: "Limit Ad Tracking").</li>
+            </ul>
+
+            <h3>13.2 Website</h3>
+            <p>The BinRo website may use the following types of cookies:</p>
+            <ul>
+                <li><strong>Essential cookies:</strong> Strictly necessary for the website to function. Cannot be disabled.</li>
+                <li><strong>Analytics cookies:</strong> Help us understand how visitors use the site (e.g., Google Analytics). These are anonymised and you can opt out via your browser settings or a cookie consent preference.</li>
+            </ul>
+            <p>You can control cookies through your browser settings. Blocking essential cookies may affect website functionality.</p>
+
+            <!-- 14. Advertising -->
+            <h2 id="section14">14. Advertising &amp; Keeping BinRo Free</h2>
+            <p>BinRo's core safety features are and will remain <strong>completely free</strong>. In-app advertising helps us sustain the project without charging users.</p>
+            <ul>
+                <li>Aggregated, non-personally-identifiable usage data (device type, approximate region, general app usage category) may be used to display relevant in-app advertisements.</li>
+                <li>We <strong>never</strong> share your name, email address, specific QR scan content, payment data, or any directly personally identifiable information with advertisers.</li>
+                <li>Advertising partners may use device advertising IDs (GAID on Android, IDFA on iOS) to measure ad performance, subject to your device-level advertising consent settings.</li>
+            </ul>
+            <p><strong>To opt out of personalised advertising:</strong></p>
+            <ul>
+                <li><strong>Android:</strong> Settings → Google → Ads → "Opt out of Ads Personalisation"</li>
+                <li><strong>iOS:</strong> Settings → Privacy → Tracking → disable per-app tracking for BinRo</li>
+                <li><strong>Email:</strong> Contact <a href="mailto:ahmedsameerbinan2@gmail.com" style="color:#3B82F6;">ahmedsameerbinan2@gmail.com</a> to request removal from personalised ad segments. Non-personalised ads may still be shown.</li>
+            </ul>
+
+            <!-- 15. Government & Law Enforcement -->
+            <h2 id="section15">15. Government &amp; Law Enforcement Requests</h2>
+            <p>BinRo operates under Indian law. We comply with lawful government and law enforcement requests for user data, including those made under:</p>
+            <ul>
+                <li>The Information Technology Act, 2000 (and amendments)</li>
+                <li>The Digital Personal Data Protection Act, 2023 (DPDPA)</li>
+                <li>The Code of Criminal Procedure, 1973</li>
+                <li>Applicable judicial orders from competent Indian courts</li>
+            </ul>
+            <p><strong>Our process for responding to government requests:</strong></p>
+            <ul>
+                <li>We review all requests for legal validity before complying. Vague or overly broad requests will be challenged.</li>
+                <li>We produce only the minimum data necessary to satisfy the lawful request.</li>
+                <li>Where legally permitted, we will notify the affected user of the request prior to disclosure, giving them an opportunity to seek legal remedy.</li>
+                <li>We do not provide any government agency with backdoor access, encryption keys, or direct system access. All access requires valid legal process served to us directly.</li>
+                <li>We maintain a record of all government data requests received and complied with (subject to any lawful confidentiality requirements).</li>
+            </ul>
+
+            <!-- 16. Children's Privacy -->
+            <h2 id="section16">16. Children's Privacy</h2>
+            <p>BinRo is <strong>not intended for users under 13 years of age</strong> (or under 18 where applicable local law requires parental consent for data processing of minors).</p>
+            <ul>
+                <li>We do not knowingly collect personal information from children under 13.</li>
+                <li>Our account registration process requires users to confirm they are 13 or older.</li>
+                <li>If we discover that a child under 13 has created an account or submitted personal data without verifiable parental consent, we will delete that data immediately and close the account.</li>
+                <li>If you are a parent or guardian and believe your child has provided personal data to BinRo without your consent, please contact us immediately at <a href="mailto:ahmedsameerbinan2@gmail.com" style="color:#3B82F6;">ahmedsameerbinan2@gmail.com</a>. We will verify and act within 5 business days.</li>
+            </ul>
+
+            <!-- 17. International Data Transfers -->
+            <h2 id="section17">17. International Data Transfers</h2>
+            <p>BinRo's primary user base is in India. Our backend infrastructure runs on Google Firebase, which stores and processes data in Google Cloud data centres. Firebase data for India-based users is processed within Google's infrastructure, which may include servers located outside India.</p>
+            <p>Google Cloud and Firebase comply with applicable cross-border data transfer requirements, including standard contractual clauses where required. By using BinRo, you consent to the transfer of your data to Google's global infrastructure as necessary to provide the service.</p>
+            <p>Calls to the OpenAI API (for AI-powered analysis) involve data transfer to OpenAI's servers in the United States. Only QR code content (no personal identifiers) is included in these requests. OpenAI complies with applicable data transfer frameworks.</p>
+
+            <!-- 18. Changes to This Policy -->
+            <h2 id="section18">18. Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. When we make material changes, we will:</p>
+            <ul>
+                <li>Update the <strong>Effective Date</strong> at the top of this page and in the app.</li>
+                <li>Increment the consent version in the app — all users will be required to review and re-accept the updated policy before continuing to use BinRo.</li>
+                <li>Where practically possible, send an in-app notification and/or email alerting you to the key changes before they take effect.</li>
+            </ul>
+            <p>Continued use of BinRo after accepting the updated policy constitutes your agreement to the revised terms. If you do not agree to any changes, you should discontinue use of BinRo and request deletion of your account.</p>
+            <p>We recommend bookmarking this page and reviewing it periodically. The effective date at the top of this page reflects the most recent revision.</p>
+
+            <!-- 19. Contact Us -->
+            <h2 id="section19">19. Contact Us</h2>
+            <p>For any privacy questions, data access or deletion requests, or to exercise any of your rights described in this policy, please reach out to us:</p>
+            <div class="contact-card">
+                <p><strong>📧 Email:</strong> <a href="mailto:ahmedsameerbinan2@gmail.com">ahmedsameerbinan2@gmail.com</a></p>
+                <p><strong>🌐 Website:</strong> <a href="https://binan-maker.github.io/qrguard" target="_blank" rel="noopener">https://binan-maker.github.io/qrguard</a></p>
+                <p><strong>📍 Address:</strong> Kerala, India</p>
+                <p style="margin-top:0.75rem; color:#6b7280; font-size:0.95rem;">We aim to respond to all privacy-related enquiries within <strong>5 business days</strong>. For urgent matters involving children's data or potential security incidents, please include "URGENT" in your subject line.</p>
+            </div>
+
             <a href="index.html" class="back-link">← Back to Home</a>
+
         </div>
     </div>
+
 </body>
 </html>
