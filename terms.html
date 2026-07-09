@@ -182,14 +182,90 @@
         }
         .back-link:hover { text-decoration: underline; }
 
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #374151;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 60px; left: 0; right: 0;
+            background: white;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            flex-direction: column;
+            z-index: 200;
+            border-top: 2px solid #e5e7eb;
+        }
+        .mobile-nav.open { display: flex; }
+        .mobile-nav a {
+            display: block;
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            font-size: 1rem;
+            border-bottom: 1px solid #f3f4f6;
+            transition: background 0.2s;
+        }
+        .mobile-nav a:hover { background: #f9fafb; color: #3B82F6; }
+
         /* Responsive */
+        @media (max-width: 1024px) {
+            .content { padding: 2.5rem 2rem; }
+            .toc ol { columns: 2; }
+        }
+
         @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
             .content { padding: 1.75rem 1.25rem; margin: 1rem; }
+            .policy-hero { padding: 2rem 1.25rem; }
             .policy-hero h1 { font-size: 1.85rem; }
+            .policy-hero .subtitle { font-size: 0.95rem; }
+            .toc { padding: 1.25rem; }
             .toc ol { columns: 1; }
-            .data-table { font-size: 0.85rem; }
-            .data-table th, .data-table td { padding: 0.5rem 0.65rem; }
-            .nav-links a { margin-left: 1rem; font-size: 0.9rem; }
+            .data-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; font-size: 0.85rem; }
+            .data-table th, .data-table td { padding: 0.5rem 0.65rem; white-space: nowrap; }
+            h2 { font-size: 1.35rem; margin: 2rem 0 0.75rem; }
+            h3 { font-size: 1.05rem; }
+            ul, ol { margin-left: 1.5rem; }
+            .callout { padding: 0.85rem 1rem; }
+        }
+
+        @media (max-width: 480px) {
+            .content { padding: 1.25rem 1rem; margin: 0.75rem; }
+            .policy-hero h1 { font-size: 1.5rem; }
+            .last-updated { font-size: 0.8rem; padding: 0.25rem 0.75rem; display: block; margin-top: 0.75rem; }
+            .toc { padding: 1rem; }
+            .callout { gap: 0.5rem; }
+            .contact-card { padding: 1.25rem; }
+            h2 { font-size: 1.2rem; }
+        }
+
+        @media (max-width: 375px) {
+            .content { margin: 0.5rem; padding: 1rem 0.875rem; }
+            .policy-hero h1 { font-size: 1.3rem; }
+            h2 { font-size: 1.1rem; }
+            h3 { font-size: 1rem; }
+            .data-table th, .data-table td { font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -203,8 +279,18 @@
                 <a href="privacy.html">Privacy</a>
                 <a href="terms.html">Terms</a>
             </div>
+            <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
         </nav>
     </header>
+
+    <!-- Mobile Nav Dropdown -->
+    <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+    </div>
 
     <div class="container">
         <div class="content">
@@ -697,7 +783,7 @@
             <p>For any questions, concerns, or notices regarding these Terms of Service, please contact us:</p>
             <div class="contact-card">
                 <p><strong>📧 Email:</strong> <a href="mailto:ahmedsameerbinan2@gmail.com">ahmedsameerbinan2@gmail.com</a></p>
-                <p><strong>🌐 Website:</strong> <a href="https://binan-maker.github.io/qrguard" target="_blank" rel="noopener">https://binan-maker.github.io/qrguard</a></p>
+                <p><strong>🌐 Website:</strong> <a href="https://binan-maker.github.io/binro" target="_blank" rel="noopener">https://binan-maker.github.io/binro</a></p>
                 <p><strong>📍 Address:</strong> Kerala, India</p>
                 <p style="margin-top:0.75rem; color:#6b7280; font-size:0.95rem;">We aim to respond to all Terms-related enquiries within <strong>5 business days</strong>.</p>
             </div>
@@ -712,5 +798,29 @@
         </div>
     </div>
 
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav  = document.getElementById('mobileNav');
+        hamburger.addEventListener('click', () => {
+            const open = mobileNav.classList.toggle('open');
+            hamburger.classList.toggle('open', open);
+            hamburger.setAttribute('aria-expanded', String(open));
+        });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') {
+                mobileNav.classList.remove('open');
+                hamburger.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        });
+        // Close when a link inside is tapped
+        mobileNav.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+                mobileNav.classList.remove('open');
+                hamburger.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
 </body>
 </html>
