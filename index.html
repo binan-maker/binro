@@ -406,6 +406,41 @@
             transform: translateY(-3px);
         }
 
+        .btn-ios {
+            background: white;
+            color: #111;
+            box-shadow: 0 4px 20px rgba(255,255,255,0.18);
+        }
+        .btn-ios:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255,255,255,0.32);
+            background: #f0f0f0;
+        }
+
+        /* "See how it works" text link beneath store buttons */
+        .hero-learn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.25rem;
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.25s;
+        }
+        .hero-learn:hover { color: var(--accent-cyan); }
+        .hero-learn i { font-size: 0.75rem; }
+
+        /* Store badges pair in CTA */
+        .store-pair {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 0.25rem;
+        }
+
         /* 3D Phone Mockup */
         .hero-visual {
             position: relative;
@@ -965,17 +1000,17 @@
             <li><a href="terms.html">Terms</a></li>
         </ul>
         <a href="#download" class="nav-cta">Download</a>
-        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
             <span></span><span></span><span></span>
         </button>
     </nav>
 
     <!-- Mobile Full-Screen Menu -->
     <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
-        <a href="#features" onclick="closeMobileMenu()">Features</a>
+        <a href="#features">Features</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
-        <a href="#download" class="mob-cta" onclick="closeMobileMenu()">Download Free</a>
+        <a href="#download" class="mob-cta">Download Free</a>
     </div>
 
     <!-- Hero Section -->
@@ -991,13 +1026,17 @@
                 <div class="hero-buttons">
                     <a href="#download" class="btn btn-primary">
                         <i class="fab fa-google-play"></i>
-                        Get It Free
+                        Google Play
                     </a>
-                    <a href="#features" class="btn btn-secondary">
-                        <i class="fas fa-play"></i>
-                        See How It Works
+                    <a href="#download" class="btn btn-ios">
+                        <i class="fab fa-apple"></i>
+                        App Store
                     </a>
                 </div>
+                <a href="#features" class="hero-learn">
+                    <i class="fas fa-chevron-down"></i>
+                    See How It Works
+                </a>
             </div>
             <div class="hero-visual">
                 <div class="phone" id="phone">
@@ -1095,16 +1134,25 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- CTA / Download Section -->
     <section class="cta" id="download">
         <div class="cta-box">
             <div class="cta-content">
                 <h2>Ready to Scan with Confidence?</h2>
-                <p>Download BinRo and verify any payment QR code before you pay — free, fast, and built for India.</p>
-                <a href="#" class="btn btn-primary">
-                    <i class="fab fa-google-play"></i>
-                    Download on Google Play
-                </a>
+                <p>Verify any payment QR code before you pay — free, fast, and built for India. Available on Android and iOS.</p>
+                <div class="store-pair">
+                    <a href="#" class="btn btn-primary">
+                        <i class="fab fa-google-play"></i>
+                        Download on Google Play
+                    </a>
+                    <a href="#" class="btn btn-ios">
+                        <i class="fab fa-apple"></i>
+                        Download on App Store
+                    </a>
+                </div>
+                <p style="margin-top:1.25rem; font-size:0.85rem; opacity:0.55; color:white;">
+                    Free · Android &amp; iOS · No subscription required
+                </p>
             </div>
         </div>
     </section>
@@ -1233,17 +1281,35 @@
             const hamburger = document.getElementById('hamburger');
             const mobileMenu = document.getElementById('mobileMenu');
             if (!hamburger || !mobileMenu) return;
+
             hamburger.addEventListener('click', () => {
                 const isOpen = mobileMenu.classList.toggle('open');
                 hamburger.classList.toggle('open', isOpen);
                 hamburger.setAttribute('aria-expanded', String(isOpen));
                 document.body.style.overflow = isOpen ? 'hidden' : '';
+                // Focus first link when opening for keyboard/screen-reader users
+                if (isOpen) {
+                    const firstLink = mobileMenu.querySelector('a');
+                    if (firstLink) firstLink.focus();
+                }
             });
+
+            // Close on backdrop tap
             mobileMenu.addEventListener('click', (e) => {
                 if (e.target === mobileMenu) closeMobileMenu();
             });
+
+            // Close when any link inside is followed (works for all links, incl. Privacy/Terms)
+            mobileMenu.querySelectorAll('a').forEach(a => {
+                a.addEventListener('click', () => closeMobileMenu());
+            });
+
+            // Close on Escape, restore focus to hamburger
             document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') closeMobileMenu();
+                if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+                    closeMobileMenu();
+                    hamburger.focus();
+                }
             });
         }
 
