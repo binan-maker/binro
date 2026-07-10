@@ -7,6 +7,10 @@
     <meta name="theme-color" content="#0a0a12">
     <title>BinRo | Scan Smart. Pay Safe.</title>
     
+    <!-- Favicon -->
+    <link rel="icon" href="icon.png" type="image/png">
+    <link rel="apple-touch-icon" href="icon.png">
+    
     <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -141,9 +145,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            padding: 8px;
+            overflow: hidden;
             animation: logoBreath 2s ease-in-out infinite;
             box-shadow: 0 0 40px rgba(0, 240, 255, 0.5);
+        }
+        .loader-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         @keyframes logoBreath {
@@ -228,9 +238,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
-            -webkit-text-fill-color: white;
+            padding: 5px;
+            overflow: hidden;
             box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+        }
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .nav-links {
@@ -983,7 +998,7 @@
 
     <!-- LOADER -->
     <div class="loader" id="loader">
-        <div class="loader-logo">🛡️</div>
+        <div class="loader-logo"><img src="icon.png" alt="BinRo"></div>
         <div class="loader-text">BinRo</div>
         <div class="loader-bar"></div>
     </div>
@@ -991,7 +1006,7 @@
     <!-- Navigation -->
     <nav class="nav" id="nav">
         <div class="logo">
-            <div class="logo-icon">🛡️</div>
+            <div class="logo-icon"><img src="icon.png" alt="BinRo"></div>
             <span>BinRo</span>
         </div>
         <ul class="nav-links">
@@ -1160,7 +1175,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="logo" style="justify-content: center; margin-bottom: 1rem;">
-            <div class="logo-icon">🛡️</div>
+            <div class="logo-icon"><img src="icon.png" alt="BinRo"></div>
             <span>BinRo</span>
         </div>
         <div class="footer-links">
